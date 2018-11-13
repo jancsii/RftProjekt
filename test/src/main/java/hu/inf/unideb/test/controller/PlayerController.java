@@ -17,7 +17,6 @@ import static hu.inf.unideb.test.service.match.ResultGenerator.probalkozas;
 import static hu.inf.unideb.test.service.match.ResultGenerator.szint;
 import static hu.inf.unideb.test.service.player.PlayerServiceImpl.enemy_team_igazolasertek;
 import static hu.inf.unideb.test.service.player.PlayerServiceImpl.enemy_team_osszertek;
-import static hu.inf.unideb.test.service.player.PlayerServiceImpl.kapus;
 import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_igazolasertek;
 import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_osszertek;
 import hu.inf.unideb.test.validator.UserValidator;
@@ -66,6 +65,7 @@ public class PlayerController {
     public List<String> listMyTeam =new ArrayList();
     public List<String> listEnemyTeam = new ArrayList();
     public List<String> igazolt = new ArrayList();
+    public int id;
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public ModelAndView getdata() {
         enemyTeamService.create(enemyTeam);
@@ -145,19 +145,90 @@ public class PlayerController {
         List<String> vedo_kiir=playerService.vedok(playerService.getNemhasznalt());        
         List<String> kozep_kiir=playerService.kozepek(playerService.getNemhasznalt());        
         List<String> tamado_kiir=playerService.tamadok(playerService.getNemhasznalt());
-        kapus_kiir.removeAll(igazolt);
-        vedo_kiir.removeAll(igazolt);
-        kozep_kiir.removeAll(igazolt);
-        tamado_kiir.removeAll(igazolt);
+        List<Integer> kapus_ertek_kiir=playerService.kapusok_ertek(playerService.getNemhasznalt());
+        List<Integer> kapus_igazolas_kiir=playerService.kapusok_igazolas(playerService.getNemhasznalt());
+        List<Integer> vedo_ertek_kiir=playerService.vedo_ertek(playerService.getNemhasznalt());
+        List<Integer> vedo_igazolas_kiir=playerService.vedo_igazolas(playerService.getNemhasznalt());
+        List<Integer> kozep_ertek_kiir=playerService.kozep_ertek(playerService.getNemhasznalt());
+        List<Integer> kozep_igazolas_kiir=playerService.kozep_igazolas(playerService.getNemhasznalt());
+        List<Integer> tamado_ertek_kiir=playerService.tamado_ertek(playerService.getNemhasznalt());
+        List<Integer> tamado_igazolas_kiir=playerService.tamado_igazolas(playerService.getNemhasznalt());
         
+        System.out.println(igazolt);
+        System.out.println(kapus_kiir);
+        System.out.println(vedo_kiir);
+        System.out.println(kozep_kiir);
+        System.out.println(tamado_kiir);
+        System.out.println("Meret_kapus"+kapus_kiir.size());
+        System.out.println("Igazolt_meret"+igazolt.size());
+        if(!kapus_kiir.isEmpty()){
+            for(int i=0;i<kapus_kiir.size();i++){
+                for(int j=0;j<igazolt.size();j++){
+                    if(kapus_kiir.get(i).equals(igazolt.get(j))){
+                        System.out.println(kapus_kiir.get(i));
+                        kapus_kiir.remove(i);
+                        kapus_ertek_kiir.remove(i);
+                        kapus_igazolas_kiir.remove(i);
+                        playerService.getNemhasznalt().remove(i);
+                    }
+                }
+            }
+        }
+        if(!vedo_kiir.isEmpty()){
+            for(int k=0;k<vedo_kiir.size();k++){
+                for(int l=0;l<igazolt.size();l++){
+                    if(vedo_kiir.get(k).equals(igazolt.get(l))){
+                        System.out.println(vedo_kiir.get(k));
+                        vedo_kiir.remove(k);
+                        vedo_ertek_kiir.remove(k);
+                        vedo_igazolas_kiir.remove(k);
+                        playerService.getNemhasznalt().remove(k);
+                    }
+                }
+            }
+        }
+        if(!kozep_kiir.isEmpty()){
+            for(int n=0;n<kozep_kiir.size();n++){
+                for(int m=0;m<igazolt.size();m++){
+                    if(kozep_kiir.get(n).equals(igazolt.get(m))){
+                        System.out.println(kozep_kiir.get(n));
+                        kozep_kiir.remove(n);
+                        kozep_ertek_kiir.remove(n);
+                        kozep_igazolas_kiir.remove(n);
+                        playerService.getNemhasznalt().remove(n);
+                    }
+                }
+            }
+        }
+        if(!tamado_kiir.isEmpty()){
+            for(int o=0;o<tamado_kiir.size();o++){
+                for(int s=0;s<igazolt.size();s++){
+                    if(tamado_kiir.get(o).equals(igazolt.get(s))){
+                        System.out.println(tamado_kiir.get(o));
+                        tamado_kiir.remove(o);
+                        tamado_ertek_kiir.remove(o);
+                        tamado_igazolas_kiir.remove(o);
+                        playerService.getNemhasznalt().remove(o);
+                    }
+                }
+            }
+        }
         ModelAndView model = new ModelAndView("piac");
         model.addObject("kapus_kiir",kapus_kiir);
         model.addObject("vedo_kiir", vedo_kiir);
         model.addObject("kozep_kiir",kozep_kiir);
         model.addObject("tamado_kiir",tamado_kiir);
+        model.addObject("kapus_ertek_kiir",kapus_ertek_kiir);
+        model.addObject("kapus_igazolas_kiir",kapus_igazolas_kiir);
+        model.addObject("vedo_ertek_kiir",vedo_ertek_kiir);
+        model.addObject("vedo_igazolas_kiir",vedo_igazolas_kiir);
+        model.addObject("kozep_ertek_kiir",kozep_ertek_kiir);
+        model.addObject("kozep_igazolas_kiir",kozep_igazolas_kiir);
+        model.addObject("tamado_ertek_kiir",tamado_ertek_kiir);
+        model.addObject("tamado_igazolas_kiir",tamado_igazolas_kiir);
         return model;
     }
-    
+        
     @RequestMapping(value = "/piac", method = RequestMethod.POST)
     public String leker(HttpServletRequest request){
         String lekeresek_kapus=request.getParameter("selected");
@@ -173,16 +244,16 @@ public class PlayerController {
         kivalasztott_kozepek.setNev(lekeresek_kozepek);
         kivalasztott_tamadok.setNev(lekeresek_tamadok);
         
+        
         for(int i=0;i<playerService.getNemhasznalt().size();i++){
-            if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kapus.getNev()) ||
-                    playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_vedok.getNev()) || 
-                    playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kozepek.getNev()) || 
-                    playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_tamadok.getNev())){
-                    playerService.getNemhasznalt().remove(i);
-                    igazolt.add(lekeresek_kapus);
-                    igazolt.add(lekeresek_vedok);
-                    igazolt.add(lekeresek_kozepek);
-                    igazolt.add(lekeresek_tamadok);
+            if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kapus.getNev())){
+                igazolt.add(lekeresek_kapus);
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_vedok.getNev())){
+                igazolt.add(lekeresek_vedok);
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kozepek.getNev())){
+                igazolt.add(lekeresek_kozepek);
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_tamadok.getNev())){
+                igazolt.add(lekeresek_tamadok);
             }
         }
         return "redirect:/piac";

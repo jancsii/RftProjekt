@@ -88,13 +88,16 @@ tr:nth-child(even){
 
 <form:form name="leker" method="POST" class="form-signin" >
     <table>
-        <c:forEach var="kapusok" items="${kapus_kiir}">
+        <c:forEach var="kapusok" items="${kapus_kiir}" varStatus="status">
             <tr>
             <td>
                 <c:out value="${kapusok}" />
             </td>
             <td>
-                Semmi.
+                <c:out value="${kapus_ertek_kiir[status.index]}"/>
+            </td>
+            <td>
+                <c:out value="${kapus_igazolas_kiir[status.index]}"/>
             </td>
             <td>
                 <input type="checkbox" name="selected" value="${kapusok}">
@@ -106,13 +109,16 @@ tr:nth-child(even){
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>   
 <h1>Vedok: </h1>
     <table>
-        <c:forEach var="vedok" items="${vedo_kiir}">
+        <c:forEach var="vedok" items="${vedo_kiir}" varStatus="status">
             <tr>
             <td>
                 <c:out value="${vedok}" />
             </td>
             <td>
-                Semmi.
+                <c:out value="${vedo_ertek_kiir[status.index]}"/>
+            </td>
+            <td>
+                <c:out value="${vedo_igazolas_kiir[status.index]}"/>
             </td>
             <td>
                 <input type="checkbox" name="selected_vedok" value="${vedok}">
@@ -124,13 +130,16 @@ tr:nth-child(even){
 
 <h1>Kozeppalyasok: </h1>
     <table>
-        <c:forEach var="kozepek" items="${kozep_kiir}">
+        <c:forEach var="kozepek" items="${kozep_kiir}" varStatus="status">
             <tr>
             <td>
                 <c:out value="${kozepek}" />
             </td>
             <td>
-                Semmi.
+                <c:out value="${kozep_ertek_kiir[status.index]}"/>
+            </td>
+            <td>
+                <c:out value="${kozep_igazolas_kiir[status.index]}"/>
             </td>
             <td>
                 <input type="checkbox" name="selected_kozepek" value="${kozepek}">
@@ -141,13 +150,16 @@ tr:nth-child(even){
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>
 <h2>Tamadok: </h2>
 <table>
-         <c:forEach var="tamadok" items="${tamado_kiir}">
+         <c:forEach var="tamadok" items="${tamado_kiir}" varStatus="status">
             <tr>
             <td>
                 <c:out value="${tamadok}" />
             </td>
             <td>
-                Semmi.
+                <c:out value="${tamado_ertek_kiir[status.index]}"/>
+            </td>
+            <td>
+                <c:out value="${tamado_igazolas_kiir[status.index]}"/>
             </td>
             <td>
                 <input type="checkbox" name="selected_tamadok" value="${tamadok}">
