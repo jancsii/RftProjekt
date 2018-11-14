@@ -150,7 +150,8 @@ $(document).ready(function(){
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h4><c:out value="${result}" /></h4>
+        <h4><c:out value="${res}" /></h4>
+        <h4><c:out value="${result}" /></h4>
             <h5>        
             <form action="/players" method="post">
 
@@ -188,13 +189,13 @@ window.onclick = function(event) {
 }
 </script>   
 
-       <!-- <h6><c:out value="${szint}" /></h6>-->
-            <h4><c:out value="${result}" /></h4>
+       <!--    <h4><c:out value="${res}" /></h4>
+            <h3><c:out value="${result}" /></h3>
             <h5>        
             <form action="/players" method="post">
 
             <button type="submit" class="btn btn-info">Tovabb</button>
-        </form></h5>
+        </form></h5> -->
 </body>
 </html>
 

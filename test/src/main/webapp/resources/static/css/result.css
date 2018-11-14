@@ -18,6 +18,20 @@ h2{
     font-family: fantasy;
     text-decoration: underline;
 }
+h3{
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    font-family: fantasy;
+}
+#trofea{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 81%;
+}
 .form-group{
     color: black;
     margin-left: auto;

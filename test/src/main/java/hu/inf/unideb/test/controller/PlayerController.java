@@ -78,10 +78,18 @@ public class PlayerController {
         model.addObject("szint","Jelenlegi szinted: "+enemyTeam.getSzint());
         model.addObject("probalkozas","Próbalkozasaid szama: "+enemyTeam.getProbalkozas());
         model.addObject("result",resultGenerator.eredmeny());
+        if(win){
+            model.addObject("res","Megnyerted a meccset!");
+        }else if(lose){
+            model.addObject("res","Elvesztetted a meccset!");
+        }else{
+            model.addObject("res","Döntetlen lett az eredmény!");
+        }
         model.addObject("ertekek",resultGenerator.toString());
         
         return model;
     }
+
     @RequestMapping(value = "/players", method = RequestMethod.POST)
     public String vmi(){
         if(lose==true){
@@ -92,7 +100,7 @@ public class PlayerController {
             ++szint;
             enemyTeam.setSzint(szint);
         }
-                if(enemyTeam.getSzint()>10){
+        if(enemyTeam.getSzint()>10){
             resultGenerator.setSzint(1);
             resultGenerator.setProbalkozas(3);
             igazolt.clear();
@@ -120,6 +128,12 @@ public class PlayerController {
         ModelAndView model = new ModelAndView("myteam");
         model.addObject("listMyTeam", listMyTeam);
         return model;
+    }
+     @RequestMapping(value = "vereseg", method = RequestMethod.GET)
+        public ModelAndView vereseg() {
+            ModelAndView model = new ModelAndView("vereseg");
+            model.addObject("elert", enemyTeam.getSzint()-1);
+            return model;
     }
 
        @RequestMapping(value = "/enemy", method = RequestMethod.GET)
@@ -335,6 +349,7 @@ public class PlayerController {
     {
         int szint = enemyTeam.getSzint() * (3/2);
         enemyTeam=teamCreator.createEnemyTeam(enemyTeam, 75 + szint, 85 + szint);
+        //enemyTeam=teamCreator.createEnemyTeam(enemyTeam, 70, 85);
         resultGenerator.setEnemyTeamAllErtek(enemy_team_igazolasertek);
         resultGenerator.setEnemyTeamAllRang(enemy_team_osszertek);
         logger.info("Ellenfél csapat legenerálva!");

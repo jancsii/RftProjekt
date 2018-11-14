@@ -149,16 +149,16 @@ public class ResultGenerator {
             win=false;
             lose=true;
             enemyTeam.setProbalkozas(probalkozas);
-            eredmeny_szoveg="A meccs eredménye: "+my_eredmeny + "-" + enemy_eredmeny;
+            eredmeny_szoveg="Az eredmény: "+my_eredmeny + "-" + enemy_eredmeny;
         }else if(enemy_eredmeny==my_eredmeny){
-            eredmeny_szoveg="A meccs eredménye: "+my_eredmeny + "-" + enemy_eredmeny;
+            eredmeny_szoveg="Az eredmény: "+my_eredmeny + "-" + enemy_eredmeny;
             lose=false;
             win=false;
         }else{
             enemyTeam.setSzint(szint);
             win=true;
             lose=false;
-            eredmeny_szoveg="A meccs eredménye: "+my_eredmeny + "-" + enemy_eredmeny;
+            eredmeny_szoveg="Az eredmény: "+my_eredmeny + "-" + enemy_eredmeny;
         }
             return eredmeny_szoveg;
     }

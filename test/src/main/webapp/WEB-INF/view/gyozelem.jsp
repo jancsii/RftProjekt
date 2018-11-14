@@ -29,6 +29,10 @@
             <a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a>
         </div>
         </div>
+        <div >
+            <h3>Gratulalunk megnyerted a kupat!</h3>
+            <img id="trofea" src=../../resources/images/trophy.png>
+        </div>
 </body>
 
 </html>

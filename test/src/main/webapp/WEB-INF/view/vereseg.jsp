@@ -1,6 +1,7 @@
 <%@page contentType = "text/html;charset = iso-8859-2" language = "java" %>
 <%@page isELIgnored = "false" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>asd</title>
@@ -28,6 +29,10 @@
             <a href="registration"><span class="glyphicon glyphicon-user "></span> Sign Up</a>
             <a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a>
         </div>
+        </div>
+        <div>
+            <h3>Kiestel a kupabol!</h3>
+            <h3><c:out value="Teljesitettel ${elert} szintet a 10-bol!" /></h3>
         </div>
 </body>
 
