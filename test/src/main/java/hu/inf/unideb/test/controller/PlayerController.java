@@ -15,10 +15,8 @@ import static hu.inf.unideb.test.service.match.ResultGenerator.lose;
 import static hu.inf.unideb.test.service.match.ResultGenerator.win;
 import static hu.inf.unideb.test.service.match.ResultGenerator.probalkozas;
 import static hu.inf.unideb.test.service.match.ResultGenerator.szint;
-import static hu.inf.unideb.test.service.player.PlayerServiceImpl.enemy_team_igazolasertek;
-import static hu.inf.unideb.test.service.player.PlayerServiceImpl.enemy_team_osszertek;
-import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_igazolasertek;
-import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_osszertek;
+import static hu.inf.unideb.test.service.player.PlayerServiceImpl.*;
+
 import hu.inf.unideb.test.validator.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +71,7 @@ public class PlayerController {
     public List<String> listMyTeam =new ArrayList();
     public List<String> listEnemyTeam = new ArrayList();
     public List<String> igazolt = new ArrayList();
+    public List<Player> piac = new ArrayList<>();
     public int id;
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public ModelAndView getdata() {
@@ -127,9 +126,19 @@ public class PlayerController {
         lose=false;
         win=false;
         getEnemyTeam();
-        
+        torol();
         return "redirect:/players";
-    } 
+    }
+
+    public void torol() {
+        for (int i = 0; i < piac.size(); i++) {
+            for (int j = 0; j < listEnemyTeam.size(); j++) {
+                if (piac.get(i).getNev().equals(listEnemyTeam.get(j))) {
+                    piac.remove(i);
+                }
+            }
+        }
+    }
     
     @RequestMapping(value = "/myteam", method = RequestMethod.GET)
     public ModelAndView getmyteam() {
@@ -163,10 +172,10 @@ public class PlayerController {
     
     @RequestMapping(value = "/piac", method = RequestMethod.GET)
     public ModelAndView getpiac() {
-        List<Player> kapus_kiir=playerService.kapusok(playerService.getNemhasznalt());
-        List<Player> vedo_kiir=playerService.vedok(playerService.getNemhasznalt());
-        List<Player> kozep_kiir=playerService.kozepek(playerService.getNemhasznalt());
-        List<Player> tamado_kiir=playerService.tamadok(playerService.getNemhasznalt());
+        List<Player> kapus_kiir=playerService.kapusok(piac);
+        List<Player> vedo_kiir=playerService.vedok(piac);
+        List<Player> kozep_kiir=playerService.kozepek(piac);
+        List<Player> tamado_kiir=playerService.tamadok(piac);
         
         System.out.println(igazolt);
         System.out.println(kapus_kiir);
@@ -175,10 +184,10 @@ public class PlayerController {
         System.out.println(tamado_kiir);
         System.out.println("Meret_kapus"+kapus_kiir.size());
         System.out.println("Igazolt_meret"+igazolt.size());
-        if(!kapus_kiir.isEmpty()){
+       /* if(!kapus_kiir.isEmpty()){
             for(int i=0;i<kapus_kiir.size();i++){
                 for(int j=0;j<igazolt.size();j++){
-                    if(kapus_kiir.get(i).equals(igazolt.get(j))){
+                    if(kapus_kiir.get(i).getNev().equals(igazolt.get(j))){
                         System.out.println(kapus_kiir.get(i));
                         kapus_kiir.remove(i);
                         playerService.getNemhasznalt().remove(i);
@@ -186,6 +195,7 @@ public class PlayerController {
                 }
             }
         }
+
         if(!vedo_kiir.isEmpty()){
             for(int k=0;k<vedo_kiir.size();k++){
                 for(int l=0;l<igazolt.size();l++){
@@ -218,7 +228,7 @@ public class PlayerController {
                     }
                 }
             }
-        }
+        }*/
         ModelAndView model = new ModelAndView("piac");
         model.addObject("kapus_kiir",kapus_kiir);
         model.addObject("vedo_kiir", vedo_kiir);
@@ -230,26 +240,100 @@ public class PlayerController {
         
     @RequestMapping(value = "/piac", method = RequestMethod.POST)
     public String leker(HttpServletRequest request){
+
         String lekeresek_kapus=request.getParameter("selected");
         String lekeresek_vedok=request.getParameter("selected_vedok");
         String lekeresek_kozepek=request.getParameter("selected_kozepek");
         String lekeresek_tamadok=request.getParameter("selected_tamadok");
         
-        for(int i=0;i<playerService.getNemhasznalt().size();i++){
-            if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_kapus)){
+        for(int i=0;i<piac.size()-1;i++){
+            Player player = new Player();
+            int ertek = resultGenerator.getMyTeamAllErtek();
+            int rang = resultGenerator.getMyTeamAllRang();
+            if(piac.get(i).getNev().equals(lekeresek_kapus)){
                 igazolt.add(lekeresek_kapus);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_vedok)){
+                player=playerService.getPlayerByName(resultGenerator.myTeam.getKapus(),"kapus");
+                logger.info("Kapus {}",player.getNev());
+                resultGenerator.setMyTeamAllErtek(ertek - player.getErtek());
+                resultGenerator.setMyTeamAllRang(rang- player.getRang());
+                player= playerService.getPlayerByName(lekeresek_kapus,"kapus");
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() + player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() + player.getRang());
+                resultGenerator.getMyTeam().setKapus(lekeresek_kapus);
+                listMyTeam = getList(resultGenerator.getMyTeam());
+                piac.remove(player);
+            }else if(piac.get(i).getNev().equals(lekeresek_vedok)){
                 igazolt.add(lekeresek_vedok);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_kozepek)){
+                player=playerService.getLowBack(resultGenerator.getMyTeam().getVedoEgy(),resultGenerator.getMyTeam().getVedoKetto(),resultGenerator.getMyTeam().getVedoHarom(),resultGenerator.getMyTeam().getVedoNegy(),"vedo");
+                logger.info("Név:{} Érték: {}",player.getNev(),player.getRang());
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() - player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() - player.getRang());
+                nevez_vedo(player.getNev(),lekeresek_vedok);
+                player = playerService.getPlayerByName(lekeresek_vedok,"vedo");
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() + player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() + player.getRang());
+                piac.remove(player);
+            }else if(piac.get(i).getNev().equals(lekeresek_kozepek)){
                 igazolt.add(lekeresek_kozepek);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_tamadok)){
+                player=playerService.getLowBack(resultGenerator.getMyTeam().getKozepEgy(),resultGenerator.getMyTeam().getKozepKetto(),resultGenerator.getMyTeam().getKozepHarom(),resultGenerator.getMyTeam().getKozepNegy(),"kozeppalyas");
+                logger.info("Név:{} Érték: {}",player.getNev(),player.getRang());
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() - player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() - player.getRang());
+                nevez_kozep(player.getNev(),lekeresek_kozepek);
+                player = playerService.getPlayerByName(lekeresek_kozepek,"kozeppalyas");
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() + player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() + player.getRang());
+                piac.remove(player);
+            }else if(piac.get(i).getNev().equals(lekeresek_tamadok)){
                 igazolt.add(lekeresek_tamadok);
+                player=playerService.getStriker(resultGenerator.getMyTeam().getTamadoEgy(),resultGenerator.getMyTeam().getTamadoKetto(),"tamado");
+                logger.info("Név:{} Érték: {}",player.getNev(),player.getRang());
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() - player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() - player.getRang());
+                nevez_tamado(player.getNev(),lekeresek_tamadok);
+                player = playerService.getPlayerByName(lekeresek_tamadok,"tamado");
+                resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() + player.getErtek());
+                resultGenerator.setMyTeamAllRang(resultGenerator.getEnemyTeamAllRang() + player.getRang());
+                piac.remove(player);
             }
         }
         return "redirect:/piac";
     }
-   
-    
+
+    public void nevez_vedo (String regi_nev, String uj_nev){
+        if(resultGenerator.getMyTeam().getVedoEgy().equals(regi_nev)){
+            resultGenerator.getMyTeam().setVedoEgy(uj_nev);
+        }else if(resultGenerator.getMyTeam().getVedoKetto().equals(regi_nev)){
+            resultGenerator.getMyTeam().setVedoKetto(uj_nev);
+        }else if(resultGenerator.getMyTeam().getVedoHarom().equals(regi_nev)){
+            resultGenerator.getMyTeam().setVedoHarom(uj_nev);
+        }else if(resultGenerator.getMyTeam().getVedoNegy().equals(regi_nev)){
+            resultGenerator.getMyTeam().setVedoNegy(uj_nev);
+        }
+        listMyTeam = getList(resultGenerator.getMyTeam());
+    }
+
+
+    public void nevez_kozep (String regi_nev, String uj_nev){
+        if(resultGenerator.getMyTeam().getKozepEgy().equals(regi_nev)){
+            resultGenerator.getMyTeam().setKozepEgy(uj_nev);
+        }else if(resultGenerator.getMyTeam().getKozepKetto().equals(regi_nev)){
+            resultGenerator.getMyTeam().setKozepKetto(uj_nev);
+        }else if(resultGenerator.getMyTeam().getKozepHarom().equals(regi_nev)){
+            resultGenerator.getMyTeam().setKozepHarom(uj_nev);
+        }else if(resultGenerator.getMyTeam().getKozepNegy().equals(regi_nev)){
+            resultGenerator.getMyTeam().setKozepNegy(uj_nev);
+        }
+        listMyTeam = getList(resultGenerator.getMyTeam());
+    }
+    public void nevez_tamado (String regi_nev, String uj_nev) {
+        if (resultGenerator.getMyTeam().getTamadoEgy().equals(regi_nev)) {
+            resultGenerator.getMyTeam().setTamadoEgy(uj_nev);
+        } else if (resultGenerator.getMyTeam().getTamadoKetto().equals(regi_nev)) {
+            resultGenerator.getMyTeam().setTamadoKetto(uj_nev);
+        }
+        listMyTeam = getList(resultGenerator.getMyTeam());
+    }
   @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView registration() {
         return new ModelAndView("registration", "userReg", new User());
@@ -295,6 +379,7 @@ public class PlayerController {
                             alanyka.setId(login_alany.getId());
                             getMyTeam();
                             getEnemyTeam();
+                            piac=nemhasznalt;
                 return "result";
                 }else {
                     model.addAttribute("error", "Bejelentkezés sikertelen!");

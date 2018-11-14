@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -161,4 +162,34 @@ public class PlayerServiceImpl implements PlayerService{
                 .collect(Collectors.toList());
         return tamado;
     }
+
+    @Override
+    public Player getPlayerByName(String name, String poszt) {
+        return playerRepository.findByName(name,poszt);
+    }
+
+    @Override
+    public Player getLowBack(String name1, String name2, String name3, String name4,String poszt) {
+        List<Player> list = new ArrayList<>();
+        list.add(getPlayerByName(name1,poszt));
+        logger.info("Név:{} Érték: {}",name1,list.get(0).getRang());
+        list.add(getPlayerByName(name2,poszt));
+        logger.info("Név:{} Érték: {}",name2,list.get(1).getRang());
+        list.add(getPlayerByName(name3,poszt));
+        logger.info("Név:{} Érték: {}",name3,list.get(2).getRang());
+        list.add(getPlayerByName(name4,poszt));
+        logger.info("Név:{} Érték: {}",name4,list.get(3).getRang());
+        return list.stream().sorted(Comparator.comparing(Player::getRang)).findFirst().get();
+    }
+
+    @Override
+    public Player getStriker(String name1, String name2, String poszt) {
+        List<Player> list = new ArrayList<>();
+        list.add(getPlayerByName(name1,poszt));
+        logger.info("Név:{} Érték: {}",name1,list.get(0).getRang());
+        list.add(getPlayerByName(name2,poszt));
+        logger.info("Név:{} Érték: {}",name2,list.get(1).getRang());
+        return list.stream().sorted(Comparator.comparing(Player::getRang)).findFirst().get();
+    }
+
 }

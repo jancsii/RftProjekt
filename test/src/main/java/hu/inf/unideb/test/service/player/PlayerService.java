@@ -17,4 +17,8 @@ public interface PlayerService {
     public List<Player> kozepek(List<Player> kozep);
     public List<Player> vedok(List<Player> vedo);
     public List<Player> tamadok(List<Player> tamado);
+    Player getPlayerByName(String name,String poszt);
+    Player getLowBack(String name1, String name2, String name3,String name4,String poszt);
+    Player getStriker(String name1, String name2,String poszt);
+
 }

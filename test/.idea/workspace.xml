@@ -4,10 +4,9 @@
     <list default="true" id="46cbee30-ea44-457e-8294-2110141f6030" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/repository/PlayerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/vereseg.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/vereseg.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,31 +137,32 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="2" />
-          <entry key="java" value="5" />
-          <entry key="jsp" value="7" />
+          <entry key="java" value="12" />
+          <entry key="jsp" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="JAVA" value="5" />
-          <entry key="JSP" value="7" />
+          <entry key="JAVA" value="12" />
+          <entry key="JSP" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="96" />
-          <entry key="java" value="916" />
-          <entry key="jsp" value="436" />
-          <entry key="txt" value="13" />
+          <entry key="java" value="2754" />
+          <entry key="jsp" value="454" />
+          <entry key="txt" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="96" />
-          <entry key="JAVA" value="916" />
-          <entry key="JSP" value="436" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="JAVA" value="2753" />
+          <entry key="JSP" value="454" />
+          <entry key="PLAIN_TEXT" value="34" />
+          <entry key="Spring Data QL" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -172,21 +172,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="217" column="21" lean-forward="true" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="21" />
+            <state relative-caret-position="79">
+              <caret line="286" column="46" selection-start-line="286" selection-start-column="46" selection-end-line="286" selection-end-column="46" />
               <folding>
-                <element signature="e#12482#12483#0" expanded="true" />
-                <element signature="e#12560#12561#0" expanded="true" />
+                <element signature="e#15471#15472#0" expanded="true" />
+                <element signature="e#15549#15550#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/repository/PlayerRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="11" column="85" lean-forward="true" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="189">
+              <caret line="167" column="27" selection-start-line="167" selection-start-column="27" selection-end-line="167" selection-end-column="27" />
+              <folding>
+                <element signature="e#6852#6853#0" expanded="true" />
+                <element signature="e#6917#6918#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,17 +207,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="164" column="86" lean-forward="true" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+            <state relative-caret-position="285">
+              <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -244,7 +248,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/enemy.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/login.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/myteam.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/myteam.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/piac.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/players.css" />
@@ -255,10 +258,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/gyozelem.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/static/css/result.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/vereseg.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/myteam.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/repository/PlayerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp" />
       </list>
     </option>
   </component>
@@ -323,6 +328,22 @@
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="hu.inf.unideb.test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="test" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src/main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hu.inf.unideb.test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="entity" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="test" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src/main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="hu.inf.unideb.test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="repository" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="test" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -594,7 +615,7 @@
     <property name="RequestMappingsPanelWidth1" value="598" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542200380887" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542214919703" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -711,7 +732,7 @@
       <workItem from="1541602055284" duration="60000" />
       <workItem from="1541690366094" duration="5999000" />
       <workItem from="1542183865495" duration="78000" />
-      <workItem from="1542183965518" duration="17258000" />
+      <workItem from="1542183965518" duration="30799000" />
     </task>
     <task id="LOCAL-00001" summary="Gyozelem jsp">
       <created>1542195837074</created>
@@ -720,11 +741,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542195837074</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixing player service">
+      <created>1542201389933</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542201389933</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50462000" />
+    <option name="totallyTimeSpent" value="64003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -808,7 +836,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Gyozelem jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gyozelem jsp" />
+    <MESSAGE value="Fixing player service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing player service" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/enemies.jsp" />
@@ -834,13 +863,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/entity/MyTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/TeamCreator.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/PlayerServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/entity/EnemyTeam.java">
@@ -916,13 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/myteam.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/user/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -931,13 +946,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/match.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/team/TeamCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/static/css/piac.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -1008,35 +1016,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/myteam.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state relative-caret-position="125">
+          <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/entity/MyTeam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="-252">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/team/MyTeamService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="217" column="21" lean-forward="true" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="21" />
-          <folding>
-            <element signature="e#12482#12483#0" expanded="true" />
-            <element signature="e#12560#12561#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/team/MyTeamServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/team/TeamCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/entity/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/piac.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="226">
           <caret line="164" column="86" lean-forward="true" selection-start-line="164" selection-start-column="86" selection-end-line="164" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/controller/PlayerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="286" column="46" selection-start-line="286" selection-start-column="46" selection-end-line="286" selection-end-column="46" />
+          <folding>
+            <element signature="e#15471#15472#0" expanded="true" />
+            <element signature="e#15549#15550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/repository/PlayerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="85" lean-forward="true" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/inf/unideb/test/service/player/PlayerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="167" column="27" selection-start-line="167" selection-start-column="27" selection-end-line="167" selection-end-column="27" />
+          <folding>
+            <element signature="e#6852#6853#0" expanded="true" />
+            <element signature="e#6917#6918#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
