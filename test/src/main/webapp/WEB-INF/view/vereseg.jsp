@@ -32,7 +32,7 @@
         </div>
         <div>
             <h3>Kiestel a kupabol!</h3>
-            <h3><c:out value="Teljesitettel ${elert} szintet a 10-bol!" /></h3>
+            <h3>Teljesitettel httpRequest.getAttribute("elert") szintet a 10-bol!</h3>
         </div>
 </body>
 

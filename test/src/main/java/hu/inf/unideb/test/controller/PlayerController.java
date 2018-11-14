@@ -23,15 +23,23 @@ import hu.inf.unideb.test.validator.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 
@@ -91,7 +99,7 @@ public class PlayerController {
     }
 
     @RequestMapping(value = "/players", method = RequestMethod.POST)
-    public String vmi(){
+    public String vmi() {
         if(lose==true){
             --probalkozas;
             enemyTeam.setProbalkozas(probalkozas);
@@ -155,18 +163,10 @@ public class PlayerController {
     
     @RequestMapping(value = "/piac", method = RequestMethod.GET)
     public ModelAndView getpiac() {
-        List<String> kapus_kiir=playerService.kapusok(playerService.getNemhasznalt());        
-        List<String> vedo_kiir=playerService.vedok(playerService.getNemhasznalt());        
-        List<String> kozep_kiir=playerService.kozepek(playerService.getNemhasznalt());        
-        List<String> tamado_kiir=playerService.tamadok(playerService.getNemhasznalt());
-        List<Integer> kapus_ertek_kiir=playerService.kapusok_ertek(playerService.getNemhasznalt());
-        List<Integer> kapus_igazolas_kiir=playerService.kapusok_igazolas(playerService.getNemhasznalt());
-        List<Integer> vedo_ertek_kiir=playerService.vedo_ertek(playerService.getNemhasznalt());
-        List<Integer> vedo_igazolas_kiir=playerService.vedo_igazolas(playerService.getNemhasznalt());
-        List<Integer> kozep_ertek_kiir=playerService.kozep_ertek(playerService.getNemhasznalt());
-        List<Integer> kozep_igazolas_kiir=playerService.kozep_igazolas(playerService.getNemhasznalt());
-        List<Integer> tamado_ertek_kiir=playerService.tamado_ertek(playerService.getNemhasznalt());
-        List<Integer> tamado_igazolas_kiir=playerService.tamado_igazolas(playerService.getNemhasznalt());
+        List<Player> kapus_kiir=playerService.kapusok(playerService.getNemhasznalt());
+        List<Player> vedo_kiir=playerService.vedok(playerService.getNemhasznalt());
+        List<Player> kozep_kiir=playerService.kozepek(playerService.getNemhasznalt());
+        List<Player> tamado_kiir=playerService.tamadok(playerService.getNemhasznalt());
         
         System.out.println(igazolt);
         System.out.println(kapus_kiir);
@@ -181,8 +181,6 @@ public class PlayerController {
                     if(kapus_kiir.get(i).equals(igazolt.get(j))){
                         System.out.println(kapus_kiir.get(i));
                         kapus_kiir.remove(i);
-                        kapus_ertek_kiir.remove(i);
-                        kapus_igazolas_kiir.remove(i);
                         playerService.getNemhasznalt().remove(i);
                     }
                 }
@@ -194,8 +192,6 @@ public class PlayerController {
                     if(vedo_kiir.get(k).equals(igazolt.get(l))){
                         System.out.println(vedo_kiir.get(k));
                         vedo_kiir.remove(k);
-                        vedo_ertek_kiir.remove(k);
-                        vedo_igazolas_kiir.remove(k);
                         playerService.getNemhasznalt().remove(k);
                     }
                 }
@@ -207,8 +203,6 @@ public class PlayerController {
                     if(kozep_kiir.get(n).equals(igazolt.get(m))){
                         System.out.println(kozep_kiir.get(n));
                         kozep_kiir.remove(n);
-                        kozep_ertek_kiir.remove(n);
-                        kozep_igazolas_kiir.remove(n);
                         playerService.getNemhasznalt().remove(n);
                     }
                 }
@@ -220,8 +214,6 @@ public class PlayerController {
                     if(tamado_kiir.get(o).equals(igazolt.get(s))){
                         System.out.println(tamado_kiir.get(o));
                         tamado_kiir.remove(o);
-                        tamado_ertek_kiir.remove(o);
-                        tamado_igazolas_kiir.remove(o);
                         playerService.getNemhasznalt().remove(o);
                     }
                 }
@@ -232,14 +224,7 @@ public class PlayerController {
         model.addObject("vedo_kiir", vedo_kiir);
         model.addObject("kozep_kiir",kozep_kiir);
         model.addObject("tamado_kiir",tamado_kiir);
-        model.addObject("kapus_ertek_kiir",kapus_ertek_kiir);
-        model.addObject("kapus_igazolas_kiir",kapus_igazolas_kiir);
-        model.addObject("vedo_ertek_kiir",vedo_ertek_kiir);
-        model.addObject("vedo_igazolas_kiir",vedo_igazolas_kiir);
-        model.addObject("kozep_ertek_kiir",kozep_ertek_kiir);
-        model.addObject("kozep_igazolas_kiir",kozep_igazolas_kiir);
-        model.addObject("tamado_ertek_kiir",tamado_ertek_kiir);
-        model.addObject("tamado_igazolas_kiir",tamado_igazolas_kiir);
+
         return model;
     }
         
@@ -249,24 +234,15 @@ public class PlayerController {
         String lekeresek_vedok=request.getParameter("selected_vedok");
         String lekeresek_kozepek=request.getParameter("selected_kozepek");
         String lekeresek_tamadok=request.getParameter("selected_tamadok");
-        Player kivalasztott_kapus=new Player();
-        Player kivalasztott_vedok=new Player();
-        Player kivalasztott_kozepek=new Player();
-        Player kivalasztott_tamadok=new Player();
-        kivalasztott_kapus.setNev(lekeresek_kapus);
-        kivalasztott_vedok.setNev(lekeresek_vedok);
-        kivalasztott_kozepek.setNev(lekeresek_kozepek);
-        kivalasztott_tamadok.setNev(lekeresek_tamadok);
-        
         
         for(int i=0;i<playerService.getNemhasznalt().size();i++){
-            if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kapus.getNev())){
+            if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_kapus)){
                 igazolt.add(lekeresek_kapus);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_vedok.getNev())){
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_vedok)){
                 igazolt.add(lekeresek_vedok);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_kozepek.getNev())){
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_kozepek)){
                 igazolt.add(lekeresek_kozepek);
-            }else if(playerService.getNemhasznalt().get(i).getNev().equals(kivalasztott_tamadok.getNev())){
+            }else if(playerService.getNemhasznalt().get(i).getNev().equals(lekeresek_tamadok)){
                 igazolt.add(lekeresek_tamadok);
             }
         }

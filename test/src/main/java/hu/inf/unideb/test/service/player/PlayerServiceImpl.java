@@ -26,19 +26,14 @@ public class PlayerServiceImpl implements PlayerService{
     public static int enemy_team_igazolasertek=0;
     public List<Player> allPlayers;
     public static List<Player> selectTeam = new ArrayList<>();
-    public List<Player> nemhasznalt = new ArrayList<>();
+    public static List<Player> nemhasznalt = new ArrayList<>();
     private int temp = 0;
-    public static List<String> kapus = new ArrayList<>();
-    public static List<String> vedo = new ArrayList<>();
-    public static List<String> kozep = new ArrayList<>();
-    public static List<String> tamado = new ArrayList<>();
     
     @Override
     public Iterable<Player> getAllPlayers()
     {
         return playerRepository.findAll();
     }
-
    
     @Override
     public List<Player> getNemhasznalt() {
@@ -49,6 +44,7 @@ public class PlayerServiceImpl implements PlayerService{
     public void setNemhasznalt(List<Player> nemhasznalt) {
         this.nemhasznalt = nemhasznalt;
     }
+
     @Override
     public List<String> getMyPlayers(String position, int number, int from, int to) {
         if(temp%4==0){
@@ -140,168 +136,28 @@ public class PlayerServiceImpl implements PlayerService{
         return temp_enemy_list;
     }
     @Override
-    public  List<String> kapusok(List<Player> nemhasznalt){
-                kapus=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus"))
-                        .map(e->e.getNev())
+    public  List<Player> kapusok(List<Player> nemhasznalt){
+                List<Player> kapus=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus"))
                 .collect(Collectors.toList());
         return kapus;
     }
 
-    @Override
-    public List<Integer> getKapus_ertek() {
-        return kapus_ertek;
-    }
 
     @Override
-    public void setKapus_ertek(List<Integer> kapus_ertek) {
-        this.kapus_ertek = kapus_ertek;
-    }
-
-    @Override
-    public List<Integer> getVedo_ertek() {
-        return vedo_ertek;
-    }
-
-    @Override
-    public void setVedo_ertek(List<Integer> vedo_ertek) {
-        this.vedo_ertek = vedo_ertek;
-    }
-
-    @Override
-    public List<Integer> getKozep_ertek() {
-        return kozep_ertek;
-    }
-
-    @Override
-    public void setKozep_ertek(List<Integer> kozep_ertek) {
-        this.kozep_ertek = kozep_ertek;
-    }
-
-    @Override
-    public List<Integer> getTamado_ertek() {
-        return tamado_ertek;
-    }
-
-    @Override
-    public void setTamado_ertek(List<Integer> tamado_ertek) {
-        this.tamado_ertek = tamado_ertek;
-    }
-
-    public List<Integer> getKapus_igazolas() {
-        return kapus_igazolas;
-    }
-
-    public void setKapus_igazolas(List<Integer> kapus_igazolas) {
-        this.kapus_igazolas = kapus_igazolas;
-    }
-
-    public List<Integer> getVedo_igazolas() {
-        return vedo_igazolas;
-    }
-
-    public void setVedo_igazolas(List<Integer> vedo_igazolas) {
-        this.vedo_igazolas = vedo_igazolas;
-    }
-
-    public List<Integer> getKozep_igazolas() {
-        return kozep_igazolas;
-    }
-
-    public void setKozep_igazolas(List<Integer> kozep_igazolas) {
-        this.kozep_igazolas = kozep_igazolas;
-    }
-
-    public List<Integer> getTamado_igazolas() {
-        return tamado_igazolas;
-    }
-
-    public void setTamado_igazolas(List<Integer> tamado_igazolas) {
-        this.tamado_igazolas = tamado_igazolas;
-    }
-    public List<Integer> kapus_ertek=new ArrayList();
-    public List<Integer> vedo_ertek=new ArrayList();
-    public List<Integer> kozep_ertek=new ArrayList();
-    public List<Integer> tamado_ertek=new ArrayList();
-    public List<Integer> kapus_igazolas=new ArrayList();
-    public List<Integer> vedo_igazolas=new ArrayList();
-    public List<Integer> kozep_igazolas=new ArrayList();
-    public List<Integer> tamado_igazolas=new ArrayList();
-    
-    @Override
-    public  List<Integer> kapusok_igazolas(List<Player> nemhasznalt){
-                kapus_ertek=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus"))
-                        .map(e->e.getErtek())
-                .collect(Collectors.toList());
-        return kapus_ertek;
-    }
-    @Override
-    public  List<Integer> kapusok_ertek(List<Player> nemhasznalt){
-                kapus_igazolas=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus"))
-                        .map(e->e.getRang())
-                .collect(Collectors.toList());
-        return kapus_igazolas;
-    }
-    
-    @Override
-        public  List<Integer> vedo_igazolas(List<Player> nemhasznalt){
-                vedo_ertek=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo"))
-                        .map(e->e.getErtek())
-                .collect(Collectors.toList());
-        return vedo_ertek;
-    }
-    @Override
-    public  List<Integer> vedo_ertek(List<Player> nemhasznalt){
-                vedo_igazolas=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo"))
-                        .map(e->e.getRang())
-                .collect(Collectors.toList());
-        return vedo_igazolas;
-    }
-    @Override
-        public  List<Integer> kozep_igazolas(List<Player> nemhasznalt){
-                kozep_ertek=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas"))
-                        .map(e->e.getErtek())
-                .collect(Collectors.toList());
-        return kozep_ertek;
-    }
-    @Override
-    public  List<Integer> kozep_ertek(List<Player> nemhasznalt){
-                kozep_igazolas=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas"))
-                        .map(e->e.getRang())
-                .collect(Collectors.toList());
-        return kozep_igazolas;
-    }
-    @Override
-        public  List<Integer> tamado_igazolas(List<Player> nemhasznalt){
-                tamado_ertek=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado"))
-                        .map(e->e.getErtek())
-                .collect(Collectors.toList());
-        return tamado_ertek;
-    }
-    @Override
-    public  List<Integer> tamado_ertek(List<Player> nemhasznalt){
-                tamado_igazolas=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado"))
-                        .map(e->e.getRang())
-                .collect(Collectors.toList());
-        return tamado_igazolas;
-    }
-    @Override
-    public  List<String> vedok(List<Player> nemhasznalt){
-                vedo=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo"))
-                        .map(e->e.getNev())
+    public  List<Player> vedok(List<Player> nemhasznalt){
+               List<Player> vedo=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo"))
                 .collect(Collectors.toList());
         return vedo;
     }
     @Override
-    public  List<String> kozepek(List<Player> nemhasznalt){
-                kozep=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas"))
-                        .map(e->e.getNev())
+    public  List<Player> kozepek(List<Player> nemhasznalt){
+               List<Player> kozep=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas"))
                 .collect(Collectors.toList());
         return kozep;
     }
     @Override
-    public List<String> tamadok(List<Player> nemhasznalt){
-                tamado=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado"))
-                        .map(e->e.getNev())
+    public List<Player> tamadok(List<Player> nemhasznalt){
+               List<Player> tamado=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado"))
                 .collect(Collectors.toList());
         return tamado;
     }

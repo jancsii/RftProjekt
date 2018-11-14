@@ -91,16 +91,16 @@ tr:nth-child(even){
         <c:forEach var="kapusok" items="${kapus_kiir}" varStatus="status">
             <tr>
             <td>
-                <c:out value="${kapusok}" />
+                <c:out value="${kapusok.nev}" />
             </td>
             <td>
-                <c:out value="${kapus_ertek_kiir[status.index]}"/>
+                <c:out value="${kapusok.rang}"/>
             </td>
             <td>
-                <c:out value="${kapus_igazolas_kiir[status.index]}"/>
+                <c:out value="${kapusok.ertek}"/>
             </td>
             <td>
-                <input type="checkbox" name="selected" value="${kapusok}">
+                <input type="checkbox" name="selected" value="${kapusok.nev}">
             </td>
             </tr>
         </c:forEach>
@@ -112,16 +112,16 @@ tr:nth-child(even){
         <c:forEach var="vedok" items="${vedo_kiir}" varStatus="status">
             <tr>
             <td>
-                <c:out value="${vedok}" />
+                <c:out value="${vedok.nev}" />
             </td>
             <td>
-                <c:out value="${vedo_ertek_kiir[status.index]}"/>
+                <c:out value="${vedok.rang}"/>
             </td>
             <td>
-                <c:out value="${vedo_igazolas_kiir[status.index]}"/>
+                <c:out value="${vedok.ertek}"/>
             </td>
             <td>
-                <input type="checkbox" name="selected_vedok" value="${vedok}">
+                <input type="checkbox" name="selected_vedok" value="${vedok.nev}">
             </td>
             </tr>
         </c:forEach>
@@ -133,36 +133,36 @@ tr:nth-child(even){
         <c:forEach var="kozepek" items="${kozep_kiir}" varStatus="status">
             <tr>
             <td>
-                <c:out value="${kozepek}" />
+                <c:out value="${kozepek.nev}" />
             </td>
             <td>
-                <c:out value="${kozep_ertek_kiir[status.index]}"/>
+                <c:out value="${kozepek.rang}"/>
             </td>
             <td>
-                <c:out value="${kozep_igazolas_kiir[status.index]}"/>
+                <c:out value="${kozepek.ertek}"/>
             </td>
             <td>
-                <input type="checkbox" name="selected_kozepek" value="${kozepek}">
+                <input type="checkbox" name="selected_kozepek" value="${kozepek.nev}">
             </td>
             </tr>
         </c:forEach>
    </table>
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>
-<h2>Tamadok: </h2>
+<h1>Tamadok</h1>
 <table>
          <c:forEach var="tamadok" items="${tamado_kiir}" varStatus="status">
             <tr>
             <td>
-                <c:out value="${tamadok}" />
+                <c:out value="${tamadok.nev}" />
             </td>
             <td>
-                <c:out value="${tamado_ertek_kiir[status.index]}"/>
+                <c:out value="${tamadok.rang}"/>
             </td>
             <td>
-                <c:out value="${tamado_igazolas_kiir[status.index]}"/>
+                <c:out value="${tamadok.ertek}"/>
             </td>
             <td>
-                <input type="checkbox" name="selected_tamadok" value="${tamadok}">
+                <input type="checkbox" name="selected_tamadok" value="${tamadok.nev}">
             </td>
             </tr>
         </c:forEach>
