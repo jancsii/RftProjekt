@@ -67,6 +67,7 @@ public class PlayerController {
     public List<String> listEnemyTeam = new ArrayList();
     public List<String> igazolt = new ArrayList();
     public List<Player> piac = new ArrayList<>();
+    int kiirt_szint=0;
     
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public ModelAndView getdata() {
@@ -119,13 +120,14 @@ public class PlayerController {
             getMyTeam();
             getEnemyTeam();
             piac=nemhasznalt;
-            return "vereseg";
-        }
+            return "redirect:/vereseg";
+        }else{
         lose=false;
         win=false;
         getEnemyTeam();
-        
+        kiirt_szint=szint;
         return "redirect:/players";
+        }
     }
 
     public void torol() {
@@ -144,10 +146,10 @@ public class PlayerController {
         model.addObject("listMyTeam", listMyTeam);
         return model;
     }
-     @RequestMapping(value = "vereseg", method = RequestMethod.GET)
+     @RequestMapping(value = "/vereseg", method = RequestMethod.GET)
         public ModelAndView vereseg() {
             ModelAndView model = new ModelAndView("vereseg");
-            model.addObject("elert", enemyTeam.getSzint()-1);
+            model.addObject("elert", kiirt_szint-1);
             return model;
     }
 
