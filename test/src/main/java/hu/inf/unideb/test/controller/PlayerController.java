@@ -70,6 +70,7 @@ public class PlayerController {
     
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public ModelAndView getdata() {
+        torol();
         enemyTeamService.create(enemyTeam);
         lose=false;
         win=false;
@@ -123,7 +124,7 @@ public class PlayerController {
         lose=false;
         win=false;
         getEnemyTeam();
-        torol();
+        
         return "redirect:/players";
     }
 
