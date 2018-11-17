@@ -1,38 +1,45 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+html,body {
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    height: 100%;
+    font-family: sans-serif;
+    
 }
 input[type=text],input[type=password]{
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 25%;
+    width: 70%;
+    height: 100%;
 }
 h2{
     text-align: center;
-    color: black;
-    font-size: 45px;
+    color: cornflowerblue;
+    font-size: 25px;
     font-family: fantasy;
-    text-decoration: underline;
+}
+h3{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: fantasy;
 }
 .form-group{
     color: red;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 25%;
+    width: 100%;
+    height: 100%;
     text-align:center;
+    font-size: 15px;
 }
 .container-fluid{
     height: 25%;
 }
 .topnav {
     overflow: hidden;
-    background-color: grey;
     width: 100%;
+    background-color: rgba(0,0,0,0.5) !important;
 }
 
 .topnav a {
@@ -45,10 +52,38 @@ h2{
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: white;
     color: black;
 }
 .topnav a.active {
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
+}
+.card{
+    height: 200%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30%;
+    background-color: rgba(0,0,0,0.5) !important;
+    text-align: center;
+    float: top;
+    
+}
+.login_btn{
+    color: white;
+    background-color: cornflowerblue;
+    width: 200px;
+    height: 30px;
+    border: red;
+    text-align: center;
+    float: top;
+}
+
+.login_btn:hover{
+    color: white;
+    background-color: skyblue;
+}
+.links{
+    color: white;
+    font-size: 10px;
 }

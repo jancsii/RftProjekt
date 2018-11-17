@@ -1,29 +1,68 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+html,body{
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    height: 100%;
+    font-family:sans-serif;
 }
-input[type=text],input[type=password]{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: 25%;
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    height: 270px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+
+.card-header h3{
+    color: cornflowerblue;
     text-align: center;
     float: top;
 }
-h2{
-    text-align: center;
+
+
+.input-group-prepend span{
+    width: 50px;
+    height: 30px;
+    background-color: cornflowerblue;
     color: black;
-    font-size: 45px;
-    font-family: fantasy;
-    font-style:  inherit;
+    border:0 !important;
+}
+
+.login_btn{
+    color: white;
+    background-color: cornflowerblue;
+    width: 300px;
+    height: 30px;
+    border: red;
+    text-align: center;
+    float: top;
+}
+
+.login_btn:hover{
+    color: white;
+    background-color: skyblue;
+}
+
+.links{
+    color: white;
+}
+.links a{
+    margin-left: 4px;
+}
+input[type=text],input[type=password]{
+    width: 300px;
+    height: 30px;
 }
 .topnav {
     overflow: hidden;
-    background-color: grey;
     width: 100%;
+    background-color: rgba(0,0,0,0.5) !important;
 }
 
 .topnav a {
@@ -36,15 +75,12 @@ h2{
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: white;
     color: black;
 }
 .topnav a.active {
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
-}
-html, body {
-    width: 100%;
 }
 table {
     margin: 0 auto;
