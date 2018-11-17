@@ -56,6 +56,7 @@
                     </div></td>
                     <td><input type="text" name="userName" placeholder="Enter Username" required ></td>
                 </tr>
+                
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -70,11 +71,8 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
                  </table>
+                <label>${error}</label>
                 <input type="submit" value="Bejelentkezés" class="login_btn center-block" style="border-radius: 12px;">
             </div>
             <div class="d-flex justify-content-center links ">                    

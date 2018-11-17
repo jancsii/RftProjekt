@@ -79,67 +79,71 @@ $(document).ready(function(){
     </head>
 <body>
         <div class="topnav">
-        <a class="active" href="result">Kezdolap</a>
-        <a href="players">Jatek</a>
-        <a href="myteam">Csapatom</a>
-        <a href="enemy">Ellenfel</a>
-        <a href="piac">Piac</a>
-        <a href="kilepes">Kilepes</a>
+        <a href="result">Adataim</a>
+        <a href="myteam">Saját csapatom</a>
+        <a href="enemy">Ellenfél csapata</a>
+        <a href="piac">Átigazolási piac</a>
+        <a class="active" href="players">Játék</a>
         <div class="nav navbar-right">
-            <a href="registration"><span class="glyphicon glyphicon-user "></span> Sign Up</a>
-            <a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kilépés</a>
         </div>
     </div>
     <h1><c:out value="${szint}" /></h1>
     <h1><c:out value="${probalkozas}" /></h1>
-    <h2>Saját csapatod </h2>
-<center>
-<div class="wrapper">
-<div class="campo">
-     <div class="semi1"></div>
-     <div class="semi2"></div>
-     <div class="divisoria"></div>
-     <div class="interior"></div>
-     <div class="penalty"></div>   
-     
-     <div class="gk"><button name="kapus"  class="btn btn-success" type="submit" value='${listMyTeam[0]}'>${listMyTeam[0]}</button></div>
-     <div class="cb"><button name="vedo_1"  class="btn btn-success" type="submit" value='${listMyTeam[1]}'>${listMyTeam[1]}</button></div>
-     <div class="lwb"><button name="vedo_2"  class="btn btn-success" type="submit" value='${listMyTeam[2]}'>${listMyTeam[2]}</button></div>
-     <div class="lb"><button name="vedo_3"  class="btn btn-success" type="submit" value='${listMyTeam[3]}'>${listMyTeam[3]}</button></div>
-     <div class="rb"><button name="vedo_4"  class="btn btn-success" type="submit" value='${listMyTeam[4]}'>${listMyTeam[4]}</button></div>
-     <div class="dm"><button name="kozep_1"  class="btn btn-success" type="submit" value='${listMyTeam[5]}'>${listMyTeam[5]}</button></div>
-     <div class="lm"><button name="kozep_2"  class="btn btn-success" type="submit" value='${listMyTeam[6]}'>${listMyTeam[6]}</button></div>
-     <div class="cm"><button name="kozep_3"  class="btn btn-success" type="submit" value='${listMyTeam[7]}'>${listMyTeam[7]}</button></div>
-     <div class="rm"><button name="kozep_4"  class="btn btn-success" type="submit" value='${listMyTeam[8]}'>${listMyTeam[8]}</button></div>
-     <div class="wl"><button name="tamado_1" class="btn btn-success" type="submit" value='${listMyTeam[9]}'>${listMyTeam[9]}</button></div>
-     <div class="st"><button name="tamado_2" class="btn btn-success" type="submit" value='${listMyTeam[10]}'>${listMyTeam[10]}</button></div>
-  </div>
- </div>
-</center>
-    <h2>Ellenfél csapata </h2>
-<center>
-<div class="wrapper">
-<div class="campo">
-     <div class="semi1"></div>
-     <div class="semi2"></div>
-     <div class="divisoria"></div>
-     <div class="interior"></div>
-     <div class="penalty"></div>   
-     
-     <div class="gk"><button name="kapus"  class="btn btn-danger" type="submit" value='${listEnemyTeam[0]}'>${listEnemyTeam[0]}</button></div>
-     <div class="cb"><button name="vedo_1"  class="btn btn-danger" type="submit" value='${listEnemyTeam[1]}'>${listEnemyTeam[1]}</button></div>
-     <div class="lwb"><button name="vedo_2"  class="btn btn-danger" type="submit" value='${listEnemyTeam[2]}'>${listEnemyTeam[2]}</button></div>
-     <div class="lb"><button name="vedo_3"  class="btn btn-danger" type="submit" value='${listEnemyTeam[3]}'>${listEnemyTeam[3]}</button></div>
-     <div class="rb"><button name="vedo_4"  class="btn btn-danger" type="submit" value='${listEnemyTeam[4]}'>${listEnemyTeam[4]}</button></div>
-     <div class="dm"><button name="kozep_1"  class="btn btn-danger" type="submit" value='${listEnemyTeam[5]}'>${listEnemyTeam[5]}</button></div>
-     <div class="lm"><button name="kozep_2"  class="btn btn-danger" type="submit" value='${listEnemyTeam[6]}'>${listEnemyTeam[6]}</button></div>
-     <div class="cm"><button name="kozep_3"  class="btn btn-danger" type="submit" value='${listEnemyTeam[7]}'>${listEnemyTeam[7]}</button></div>
-     <div class="rm"><button name="kozep_4"  class="btn btn-danger" type="submit" value='${listEnemyTeam[8]}'>${listEnemyTeam[8]}</button></div>
-     <div class="wl"><button name="tamado_1" class="btn btn-danger" type="submit" value='${listEnemyTeam[9]}'>${listEnemyTeam[9]}</button></div>
-     <div class="st"><button name="tamado_2" class="btn btn-danger" type="submit" value='${listEnemyTeam[10]}'>${listEnemyTeam[10]}</button></div>
-  </div>
- </div>
-</center>
+    
+    <table>
+        <tr>
+            <td><h2>Saját csapatod </h2></td>
+            <td><h2>Ellenfél csapata </h2></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="wrapper">
+                <div class="campo">
+                <div class="semi1"></div>
+                <div class="semi2"></div>
+                <div class="divisoria"></div>
+                <div class="interior"></div>
+                <div class="penalty"></div>        
+                <div class="gk"><button name="kapus"  class="btn btn-success" type="submit" value='${listMyTeam[0]}'>${listMyTeam[0]}</button></div>
+                <div class="cb"><button name="vedo_1"  class="btn btn-success" type="submit" value='${listMyTeam[1]}'>${listMyTeam[1]}</button></div>
+                <div class="lwb"><button name="vedo_2"  class="btn btn-success" type="submit" value='${listMyTeam[2]}'>${listMyTeam[2]}</button></div>
+                <div class="lb"><button name="vedo_3"  class="btn btn-success" type="submit" value='${listMyTeam[3]}'>${listMyTeam[3]}</button></div>
+                <div class="rb"><button name="vedo_4"  class="btn btn-success" type="submit" value='${listMyTeam[4]}'>${listMyTeam[4]}</button></div>
+                <div class="dm"><button name="kozep_1"  class="btn btn-success" type="submit" value='${listMyTeam[5]}'>${listMyTeam[5]}</button></div>
+                <div class="lm"><button name="kozep_2"  class="btn btn-success" type="submit" value='${listMyTeam[6]}'>${listMyTeam[6]}</button></div>
+                <div class="cm"><button name="kozep_3"  class="btn btn-success" type="submit" value='${listMyTeam[7]}'>${listMyTeam[7]}</button></div>
+                <div class="rm"><button name="kozep_4"  class="btn btn-success" type="submit" value='${listMyTeam[8]}'>${listMyTeam[8]}</button></div>
+                <div class="wl"><button name="tamado_1" class="btn btn-success" type="submit" value='${listMyTeam[9]}'>${listMyTeam[9]}</button></div>
+                <div class="st"><button name="tamado_2" class="btn btn-success" type="submit" value='${listMyTeam[10]}'>${listMyTeam[10]}</button></div>
+                </div>
+                </div>
+            </td>
+            <td>
+                <div class="wrapper">
+                <div class="campo">
+                <div class="semi1"></div>
+                <div class="semi2"></div>
+                <div class="divisoria"></div>
+                <div class="interior"></div>
+                <div class="penalty"></div>   
+                <div class="gk"><button name="kapus"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[0]}'>${listEnemyTeam[0]}</button></div>
+                <div class="cb"><button name="vedo_1"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[1]}'>${listEnemyTeam[1]}</button></div>
+                <div class="lwb"><button name="vedo_2"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[2]}'>${listEnemyTeam[2]}</button></div>
+                <div class="lb"><button name="vedo_3"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[3]}'>${listEnemyTeam[3]}</button></div>
+                <div class="rb"><button name="vedo_4"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[4]}'>${listEnemyTeam[4]}</button></div>
+                <div class="dm"><button name="kozep_1"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[5]}'>${listEnemyTeam[5]}</button></div>
+                <div class="lm"><button name="kozep_2"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[6]}'>${listEnemyTeam[6]}</button></div>
+                <div class="cm"><button name="kozep_3"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[7]}'>${listEnemyTeam[7]}</button></div>
+                <div class="rm"><button name="kozep_4"  style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[8]}'>${listEnemyTeam[8]}</button></div>
+                <div class="wl"><button name="tamado_1" style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[9]}'>${listEnemyTeam[9]}</button></div>
+                <div class="st"><button name="tamado_2" style="vertical-align: middle;" class="btn btn-danger" type="submit" value='${listEnemyTeam[10]}'>${listEnemyTeam[10]}</button></div>
+                </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
 <h3>
      <button id="myBtn" class="btn btn-info">Eredmény</button>
 </h3>

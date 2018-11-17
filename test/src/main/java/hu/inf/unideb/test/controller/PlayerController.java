@@ -343,7 +343,6 @@ public class PlayerController {
     
 @RequestMapping(value = {"/","","/login"}, method = RequestMethod.GET)
     public String init(Model model) {
-        model.addAttribute("msg", "Jelentkezzen be!");
         return "login";
   }
 
@@ -351,7 +350,7 @@ public class PlayerController {
   public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
         login_alany=userService.findByUsername(loginBean.getUserName());
         if(login_alany == null){
-            model.addAttribute("error", "Nem ervenyes!");
+            model.addAttribute("error", "Nincs ilyen felhasználó!");
             return "login";            
         }else{ 
             if(loginBean.getPassword() != null) {

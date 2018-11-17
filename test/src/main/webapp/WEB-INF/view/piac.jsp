@@ -71,15 +71,13 @@ tr:nth-child(even){
 
 <body>
         <div class="topnav">
-        <a class="active" href="result">Kezdolap</a>
-        <a href="players">Jatek</a>
-        <a href="myteam">Csapatom</a>
-        <a href="enemy">Ellenfel</a>
-        <a href="piac">Piac</a>
-        <a href="kilepes">Kilepes</a>
+        <a href="result">Adataim</a>
+        <a href="myteam">Saját csapatom</a>
+        <a href="enemy">Ellenfél csapata</a>
+        <a class="active" href="piac">Átigazolási piac</a>
+        <a href="players">Játék</a>
         <div class="nav navbar-right">
-            <a href="registration"><span class="glyphicon glyphicon-user "></span> Sign Up</a>
-            <a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kilépés</a>
         </div>
     </div>
     

@@ -36,8 +36,8 @@ h2{
 }
 .topnav {
     overflow: hidden;
-    background-color: grey;
     width: 100%;
+    background-color: rgba(0,0,0,0.5) !important;
 }
 
 .topnav a {
@@ -50,11 +50,11 @@ h2{
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: white;
     color: black;
 }
 .topnav a.active {
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
 }
 ul{
