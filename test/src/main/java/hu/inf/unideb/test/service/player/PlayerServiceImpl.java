@@ -28,6 +28,7 @@ public class PlayerServiceImpl implements PlayerService{
     public List<Player> allPlayers;
     public static List<Player> selectTeam = new ArrayList<>();
     public static List<Player> nemhasznalt = new ArrayList<>();
+    public static List<String> igazolt = new ArrayList<>();
     private int temp = 0;
     
     @Override
@@ -134,31 +135,36 @@ public class PlayerServiceImpl implements PlayerService{
         int enemy_team_reszigazolas=temp_enemy_igazolas.stream().mapToInt(e->e).sum();
         enemy_team_igazolasertek+=enemy_team_reszigazolas;
         nemhasznalt = new ArrayList<>(selectTeam);
+        for(int j=0; j<igazolt.size(); j++) {
+            String p = igazolt.get(j);
+            nemhasznalt.removeIf(e -> e.getNev().equals(p));
+            logger.info("Igazoltak es torolve lettek {}",p);
+        }
         return temp_enemy_list;
     }
     @Override
-    public  List<Player> kapusok(List<Player> nemhasznalt){
-                List<Player> kapus=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus"))
+    public  List<Player> kapusok(List<Player> nemhasznalt, int money){
+                List<Player> kapus=nemhasznalt.stream().filter(e->e.getPoszt().equals("kapus") && e.getErtek() <= money)
                 .collect(Collectors.toList());
         return kapus;
     }
 
 
     @Override
-    public  List<Player> vedok(List<Player> nemhasznalt){
-               List<Player> vedo=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo"))
+    public  List<Player> vedok(List<Player> nemhasznalt, int money){
+               List<Player> vedo=nemhasznalt.stream().filter(e->e.getPoszt().equals("vedo") && e.getErtek() <= money)
                 .collect(Collectors.toList());
         return vedo;
     }
     @Override
-    public  List<Player> kozepek(List<Player> nemhasznalt){
-               List<Player> kozep=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas"))
+    public  List<Player> kozepek(List<Player> nemhasznalt, int money){
+               List<Player> kozep=nemhasznalt.stream().filter(e->e.getPoszt().equals("kozeppalyas") && e.getErtek() <= money)
                 .collect(Collectors.toList());
         return kozep;
     }
     @Override
-    public List<Player> tamadok(List<Player> nemhasznalt){
-               List<Player> tamado=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado"))
+    public List<Player> tamadok(List<Player> nemhasznalt, int money){
+               List<Player> tamado=nemhasznalt.stream().filter(e->e.getPoszt().equals("tamado") && e.getErtek() <= money)
                 .collect(Collectors.toList());
         return tamado;
     }

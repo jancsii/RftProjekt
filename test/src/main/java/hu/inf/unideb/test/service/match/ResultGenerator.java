@@ -26,6 +26,7 @@ public class ResultGenerator {
     }
     public static int probalkozas=3;
     public static int szint=1;
+    public static int money=5;
     Random rand = new Random();
     int my_eredmeny=0;
     int enemy_eredmeny=0;
@@ -43,6 +44,8 @@ public class ResultGenerator {
     public void setSzint(int szint) {
         this.szint = szint;
     }
+
+    public void setMoney(int money) {this.money = money;}
 
     public MyTeam getMyTeam() {
         return myTeam;

@@ -82,24 +82,25 @@ tr:nth-child(even){
     </div>
     
 <h1>Átigazolási piac</h1>
+        <h1>Money: ${money}</h1>
 <h1>Kapusok</h1>
 
 <form:form name="leker" method="POST" class="form-signin" >
     <table>
         <c:forEach var="kapusok" items="${kapus_kiir}" varStatus="status">
             <tr>
-            <td>
-                <c:out value="${kapusok.nev}" />
-            </td>
-            <td>
-                <c:out value="${kapusok.rang}"/>
-            </td>
-            <td>
-                <c:out value="${kapusok.ertek}"/>
-            </td>
-            <td>
-                <input type="checkbox" name="selected" value="${kapusok.nev}">
-            </td>
+                <td>
+                    <c:out value="${kapusok.nev}" />
+                </td>
+                <td>
+                    <c:out value="${kapusok.rang}"/>
+                </td>
+                <td>
+                    <c:out value="${kapusok.ertek}"/>
+                </td>
+                <td>
+                    <input type="checkbox" name="selected" value="${kapusok.nev}">
+                </td>
             </tr>
         </c:forEach>
    </table>
