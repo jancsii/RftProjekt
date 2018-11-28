@@ -7,6 +7,7 @@ package hu.inf.unideb.test.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -54,6 +56,8 @@ public class User implements Serializable {
     private String lastName;
     @Column(name = "isactive")
     private Boolean isactive;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private Authorities authorities;
 
     public User() {
     }
@@ -124,6 +128,14 @@ public class User implements Serializable {
 
     public void setIsactive(Boolean isactive) {
         this.isactive = isactive;
+    }
+
+    public Authorities getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Authorities authorities) {
+        this.authorities = authorities;
     }
 
     @Override

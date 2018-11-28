@@ -21,7 +21,7 @@
 <body>
 <form:form action="/registration" modelAttribute="userReg" method="POST" class="form-signin">
     <div class="topnav">
-        <a href=""><span class="glyphicon glyphicon-home "></span> Kezdőlap</a>
+        <a href="home"><span class="glyphicon glyphicon-home "></span> Kezdőlap</a>
         <div class="nav navbar-right">
             <a class="active" href="registration"><span class="glyphicon glyphicon-user "></span> Regisztráció</a>
             <a href="login"><span class="glyphicon glyphicon-log-in "></span> Bejelentkezés</a>

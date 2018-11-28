@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -42,5 +43,18 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
       messageSource.setUseCodeAsDefaultMessage(true);
       return messageSource;
   }
+      @Bean(name = "dataSource")
+
+ public DriverManagerDataSource dataSource() {
+
+     DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+
+     driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+     driverManagerDataSource.setUrl("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7261965");
+     driverManagerDataSource.setUsername("sql7261965");
+     driverManagerDataSource.setPassword("lQVQmLtKP5");
+     return driverManagerDataSource;
+
+ }
 
 }

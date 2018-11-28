@@ -1,22 +1,23 @@
 package hu.inf.unideb.test.controller;
 
+import hu.inf.unideb.test.entity.Authorities;
 import hu.inf.unideb.test.service.user.UserService;
 import hu.inf.unideb.test.service.team.TeamCreator;
 import hu.inf.unideb.test.service.match.ResultGenerator;
 import hu.inf.unideb.test.service.player.PlayerService;
 import hu.inf.unideb.test.service.team.MyTeamService;
 import hu.inf.unideb.test.service.team.EnemyTeamService;
-import hu.inf.unideb.test.entity.LoginBean;
 import hu.inf.unideb.test.entity.EnemyTeam;
 import hu.inf.unideb.test.entity.MyTeam;
 import hu.inf.unideb.test.entity.Player;
 import hu.inf.unideb.test.entity.User;
 import static hu.inf.unideb.test.service.match.ResultGenerator.lose;
+import static hu.inf.unideb.test.service.match.ResultGenerator.money;
 import static hu.inf.unideb.test.service.match.ResultGenerator.win;
 import static hu.inf.unideb.test.service.match.ResultGenerator.probalkozas;
 import static hu.inf.unideb.test.service.match.ResultGenerator.szint;
-import static hu.inf.unideb.test.service.match.ResultGenerator.money;
 import static hu.inf.unideb.test.service.player.PlayerServiceImpl.*;
+import hu.inf.unideb.test.service.user.AuthoritiesService;
 
 import hu.inf.unideb.test.validator.UserValidator;
 import org.slf4j.Logger;
@@ -31,6 +32,8 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
@@ -54,7 +57,8 @@ public class PlayerController {
     UserValidator userValidator;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
-    
+    @Autowired
+    AuthoritiesService authService;
     
     MyTeam myTeam = new MyTeam();
     EnemyTeam enemyTeam=new EnemyTeam();
@@ -66,8 +70,9 @@ public class PlayerController {
     ResultGenerator resultGenerator = new ResultGenerator();
     public List<String> listMyTeam =new ArrayList();
     public List<String> listEnemyTeam = new ArrayList();
-    //public List<String> igazolt = new ArrayList();
+    public List<String> igazolt = new ArrayList();
     public List<Player> piac = new ArrayList<>();
+    public Authorities autha=new Authorities();
     int kiirt_szint=0;
     
     @RequestMapping(value = "/players", method = RequestMethod.GET)
@@ -102,7 +107,7 @@ public class PlayerController {
             enemyTeam.setProbalkozas(probalkozas);
         }
         if(win==true){
-            money += szint * 2;
+            money +=szint*2;
             ++szint;
             enemyTeam.setSzint(szint);
         }
@@ -113,7 +118,7 @@ public class PlayerController {
             getMyTeam();
             getEnemyTeam();
             piac=nemhasznalt;
-            money = 5;
+            money=5;
             return "gyozelem";
         }
         if(enemyTeam.getProbalkozas()==0){
@@ -123,7 +128,7 @@ public class PlayerController {
             getMyTeam();
             getEnemyTeam();
             piac=nemhasznalt;
-            money = 5;
+            money=5;
             return "redirect:/vereseg";
         }else{
         lose=false;
@@ -186,7 +191,7 @@ public class PlayerController {
         model.addObject("vedo_kiir", vedo_kiir);
         model.addObject("kozep_kiir",kozep_kiir);
         model.addObject("tamado_kiir",tamado_kiir);
-        model.addObject("money", money);
+        model.addObject("money",money);
 
         return model;
     }
@@ -270,7 +275,6 @@ public class PlayerController {
                 piac.remove(player);
             }else if(piac.get(s).getNev().equals(lekeresek_tamadok)){
                 igazolt.add(lekeresek_tamadok);
-                System.out.println(lekeresek_tamadok);
                 player=playerService.getStriker(resultGenerator.getMyTeam().getTamadoEgy(),resultGenerator.getMyTeam().getTamadoKetto(),"tamado");
                 logger.info("Név:{} Érték: {}",player.getNev(),player.getRang());
                 resultGenerator.setMyTeamAllErtek(resultGenerator.getMyTeamAllErtek() - player.getErtek());
@@ -333,6 +337,7 @@ public class PlayerController {
             return "registration";
         }
         
+        user.setIsactive(true);
         userService.save(user);
         alany.setUsername(user.getUsername());
         alany.setPassword(user.getPassword());
@@ -340,25 +345,34 @@ public class PlayerController {
         alany.setFirstName(user.getFirstName());
         alany.setLastName(user.getLastName());
         alany.setEmail(user.getEmail());
+        alany.setIsactive(true);
         alany.setId(user.getId());
+        autha.setId(user.getId());
+        autha.setUsername(alany.getUsername());
+        autha.setAuthority("USER");
+        authService.save(autha);
         return "redirect:/login";
     }
     
-@RequestMapping(value = {"/","","/login"}, method = RequestMethod.GET)
-    public String init(Model model) {
-        return "login";
-  }
 
-  @RequestMapping(value = {"/","","/login"}, method = RequestMethod.POST)
-  public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
-        login_alany=userService.findByUsername(loginBean.getUserName());
-        if(login_alany == null){
-            model.addAttribute("error", "Nincs ilyen felhasználó!");
-            return "login";            
-        }else{ 
-            if(loginBean.getPassword() != null) {
-                if(login_alany.getUsername().equals(loginBean.getUserName()) && bCryptPasswordEncoder.matches(loginBean.getPassword(), login_alany.getPassword())){
-                            model.addAttribute("username", login_alany.getUsername());
+    
+@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+public ModelAndView loginPage() {
+    return new ModelAndView("login");
+}
+
+@RequestMapping(value = {" ","/","/home"}, method =RequestMethod.GET)
+public ModelAndView homePage() {
+    return new ModelAndView("home");
+}
+
+  @RequestMapping(value = {" ","/","/home"}, method = RequestMethod.POST)
+  public String submit(Model model) {
+                Authentication auth = SecurityContextHolder.getContext()
+                                                 .getAuthentication();
+                            model.addAttribute("username",auth.getName() );
+                            login_alany=userService.findByUsername(auth.getName());
+                            model.addAttribute("username",login_alany.getUsername());
                             model.addAttribute("firstName", login_alany.getFirstName());
                             model.addAttribute("lastName", login_alany.getLastName());
                             model.addAttribute("email", login_alany.getEmail());
@@ -367,15 +381,8 @@ public class PlayerController {
                             getEnemyTeam();
                             piac=nemhasznalt;
                 return "result";
-                }else {
-                    model.addAttribute("error", "Bejelentkezés sikertelen!");
-                return "login";
-                }
-            }else{
-                System.out.println("Nincs megadva jelszó!");
-                return "login";}
-     }
-}
+               
+  }
 
   
     public void getMyTeam()

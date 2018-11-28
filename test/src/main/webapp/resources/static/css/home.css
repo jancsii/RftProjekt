@@ -8,26 +8,30 @@ html,body{
 .container{
     height: 100%;
     align-content: center;
+    margin:0 auto;
+    width:250px;
 }
 
 .card{
-    height: 250px;
-    top:50px;
-    width: 40%;
-    background-color: rgba(0,0,0,0.5) !important;
+    position: fixed;
+    top:120px;
+    height: 50%;
+    width: 80%;
+    background-color: rgba(0,0,0,0.3) !important;
+    border-radius: 30px;
 }
 
 
 .card-header h3{
     color: cornflowerblue;
     text-align: center;
-    font-size: 35px;
+    float: top;
 }
 
 
 .input-group-prepend span{
     width: 50px;
-    height: 40px;
+    height: 30px;
     background-color: cornflowerblue;
     color: black;
     border:0 !important;
@@ -36,7 +40,11 @@ html,body{
 .login_btn{
     color: white;
     background-color: cornflowerblue;
-    
+    width: 300px;
+    height: 30px;
+    border: red;
+    text-align: center;
+    float: top;
 }
 
 .login_btn:hover{
@@ -49,11 +57,6 @@ html,body{
 }
 .links a{
     margin-left: 4px;
-}
-input[type=text],input[type=password]{
-    width: 300px;
-    height: 40px;
-    font-size: 20px;
 }
 .topnav {
     overflow: hidden;
@@ -78,8 +81,15 @@ input[type=text],input[type=password]{
     background-color: cornflowerblue;
     color: white;
 }
-table {
-    margin: 0 auto;
-    color: black;
-    width: 40%;
+h1{
+    color: yellow;
+    text-decoration: blue;
+    text-align: center;
+    font-size: 40px;
+    font-family: fantasy;
+    text-decoration: underline;
+}
+h2{
+    color: white;
+    text-align: center;
 }
