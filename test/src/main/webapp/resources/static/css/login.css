@@ -1,18 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body{
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
-    font-family:sans-serif;
+    font-family: 'Indie Flower', cursive;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .container{
     height: 100%;
     align-content: center;
 }
+.kep{
+    align-content: center;
+    background: url("https://i.pinimg.com/originals/9e/eb/0e/9eeb0e2aeb413c4efdeb69b466fbc694.png");
+    background-repeat: no-repeat;
+    background-position: 110%;
+    background-position-y: 50px;
+    background-size: 600px;
+    
+}
+.kep_1{
+    align-content: center;
+    background: url("https://orig00.deviantart.net/91ca/f/2017/183/0/e/eden_hazard_by_dianjay-dbess96.png");
+    background-repeat: no-repeat;
+    background-position: 0%;
+    background-position-y: 80px;
+    background-size: 400px;
+}
 
 .card{
     height: 250px;
-    top:50px;
+    top:100px;
     width: 40%;
     background-color: rgba(0,0,0,0.5) !important;
 }
@@ -59,6 +91,7 @@ input[type=text],input[type=password]{
     overflow: hidden;
     width: 100%;
     background-color: rgba(0,0,0,0.5) !important;
+    font-family: fantasy;
 }
 
 .topnav a {

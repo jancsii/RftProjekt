@@ -25,18 +25,21 @@
             <a href="registration"><span class="glyphicon glyphicon-user "></span> Regisztráció</a>
             <a href="login"><span class="glyphicon glyphicon-log-in "></span> Bejelentkezés</a>
         </div>
+    </div>
         <div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
+    <div class="d-flex justify-content-center h-100 gif">
+        <div class="card">            
             <div class="card-header">
-		<h1>Légy te a LEGJOBB Manager!</h1>
+		<h1>Légy te a lehjobb Manager!</h1>
                 <h2>Üdvözöllek hallgató ezen a webhelyen. Tudom, hogy mit szeretnél. Te akarsz lenni a legjobb Manager a világon.
                 Ehhez egy kis segítséget szeretnénk adni. Ha újonc vagy, akkor regisztrálj be a FociMániások honlapjára, hogy
                 számon tudjunk tartani a Managereink között. Ha viszont már túl vagy ezen lépj be nyugodtan, és folytasd a pályafutásod.
                 Sok szerencsét Kölyök! :)</h2>
+                <h3></h3>
         </div>
     </div>
 </div>
+        </div>
         
     </body>
 </html>

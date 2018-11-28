@@ -1,40 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body{
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    font-family:sans-serif;
-}
+    font-family: 'Indie Flower', cursive;
+    }
 .container{
-    height: 100%;
     align-content: center;
-    margin:0 auto;
-    width:250px;
+    margin: auto;
+    width:40%;
 }
 
 .card{
     position: fixed;
-    top:120px;
-    height: 50%;
+    top:200px;
     width: 80%;
     background-color: rgba(0,0,0,0.3) !important;
-    border-radius: 30px;
+    margin: auto;
+}
+.gif{
+    position: fixed;
+    width: 38%;
+    background-image: url("https://media.giphy.com/media/xGrwTAurLRaPm/source.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 }
 
 
 .card-header h3{
     color: cornflowerblue;
     text-align: center;
-    float: top;
-}
-
-
-.input-group-prepend span{
-    width: 50px;
-    height: 30px;
-    background-color: cornflowerblue;
-    color: black;
-    border:0 !important;
 }
 
 .login_btn{
@@ -47,11 +43,6 @@ html,body{
     float: top;
 }
 
-.login_btn:hover{
-    color: white;
-    background-color: skyblue;
-}
-
 .links{
     color: white;
 }
@@ -62,6 +53,7 @@ html,body{
     overflow: hidden;
     width: 100%;
     background-color: rgba(0,0,0,0.5) !important;
+    font-family: fantasy;
 }
 
 .topnav a {
@@ -85,11 +77,12 @@ h1{
     color: yellow;
     text-decoration: blue;
     text-align: center;
-    font-size: 40px;
-    font-family: fantasy;
-    text-decoration: underline;
+    font-size: 50px;
 }
 h2{
     color: white;
     text-align: center;
+}
+h3{
+    background-image: url("https://media.giphy.com/media/xGrwTAurLRaPm/source.gif");
 }

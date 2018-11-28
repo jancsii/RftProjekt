@@ -18,6 +18,8 @@
         <link type="text/css" rel="stylesheet" href="/resources/static/css/login.css">	
     </head>
 <body>
+    <div class="kep">
+        <div class="kep_1">
     <form action="/login" method="POST"> 
             <div class="topnav">
                 <a href="home"><span class="glyphicon glyphicon-home "></span> Kezdőlap</a>
@@ -73,5 +75,7 @@
     </div>
 </div> 
 </form>
+        </div>
+    </div>
 </body>
 </html>
