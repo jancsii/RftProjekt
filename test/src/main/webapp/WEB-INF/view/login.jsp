@@ -37,10 +37,6 @@
             <div class="card-body">
                 <table style="text-align:center;">
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
                         <td>
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
