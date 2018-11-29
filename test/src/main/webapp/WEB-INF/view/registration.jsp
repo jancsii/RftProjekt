@@ -19,6 +19,8 @@
 
 </head>
 <body>
+    <img src="https://pbs.twimg.com/media/DdkgUjcXUAEYzLX.png" alt="" />
+    <img src="https://hqfootballrenders.files.wordpress.com/2013/10/jc3bcrgen-klopp.png" class="kep"/>
 <form:form action="/registration" modelAttribute="userReg" method="POST" class="form-signin">
     <div class="topnav">
         <a href="home"><span class="glyphicon glyphicon-home "></span> Kezdőlap</a>
@@ -28,28 +30,10 @@
         </div>
         
     </div>
-    <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+    
     <div class="card center-block">
                 <h2>Regisztráció</h2>
-        <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+        
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}" style="font-size: 10px;">
                 <form:input type="text" path="username" class="form-control" placeholder="Username"
@@ -92,33 +76,17 @@
                 <form:errors path="email"></form:errors>
             </div><div style="color: red">${error}</div>
         </spring:bind>
-            <div>
-                <table>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                
-                </table>
-            </div>
+            
             <div style="text-align:center;">
                 <button type="submit" class="login_btn center-block" style="border-radius: 12px;">Regisztráció</button>
             </div>
-            <div>
-                <table>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                
-                </table>
-            </div>
+            
             <div class="card-footer" style="text-align:center;">
             </div>
 </form:form>
-    </div>
-                    <div class="d-flex justify-content-center links ">   
+            <div class="d-flex justify-content-center links ">   
                     <h3>Mégis van felhasználód?<a href="/login">Bejelentkezés</a></h3>
                 </div>
+    </div>
 </body>
 </html>

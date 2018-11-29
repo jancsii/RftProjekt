@@ -3,8 +3,9 @@ html,body{
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Indie Flower', cursive;
-    }
+}
 .container{
     align-content: center;
     margin: auto;
@@ -13,7 +14,7 @@ html,body{
 
 .card{
     position: fixed;
-    top:200px;
+    top:100px;
     width: 80%;
     background-color: rgba(0,0,0,0.3) !important;
     margin: auto;
@@ -24,7 +25,7 @@ html,body{
     background-image: url("https://media.giphy.com/media/xGrwTAurLRaPm/source.gif");
     background-size: cover;
     background-repeat: no-repeat;
-    
+
 }
 
 
@@ -33,22 +34,6 @@ html,body{
     text-align: center;
 }
 
-.login_btn{
-    color: white;
-    background-color: cornflowerblue;
-    width: 300px;
-    height: 30px;
-    border: red;
-    text-align: center;
-    float: top;
-}
-
-.links{
-    color: white;
-}
-.links a{
-    margin-left: 4px;
-}
 .topnav {
     overflow: hidden;
     width: 100%;

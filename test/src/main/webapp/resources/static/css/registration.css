@@ -1,28 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body {
     background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100%;
-    font-family: sans-serif;
-    
-}
-input[type=text],input[type=password]{
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    height: 100%;
+    font-family: 'Indie Flower', cursive;
+
 }
 h2{
     text-align: center;
     color: cornflowerblue;
     font-size: 25px;
-    font-family: fantasy;
 }
 h3{
     text-align: center;
+    padding-top:10%;
     color: white;
     font-size: 20px;
-    font-family: fantasy;
+    top:100px;
 }
 .form-group{
     color: red;
@@ -33,13 +29,11 @@ h3{
     text-align:center;
     font-size: 15px;
 }
-.container-fluid{
-    height: 25%;
-}
 .topnav {
     overflow: hidden;
     width: 100%;
     background-color: rgba(0,0,0,0.5) !important;
+    font-family: fantasy;
 }
 
 .topnav a {
@@ -60,14 +54,13 @@ h3{
     color: white;
 }
 .card{
-    height: 200%;
-    margin-top: auto;
-    margin-bottom: auto;
+    height: 120%;
     width: 30%;
     background-color: rgba(0,0,0,0.5) !important;
     text-align: center;
-    float: top;
-    
+    top:50px;
+
+
 }
 .login_btn{
     color: white;
@@ -78,7 +71,10 @@ h3{
     text-align: center;
     float: top;
 }
-
+.container{
+    height: 100%;
+    align-content: center;
+}
 .login_btn:hover{
     color: white;
     background-color: skyblue;
@@ -86,4 +82,24 @@ h3{
 .links{
     color: white;
     font-size: 10px;
+}
+img {
+    position: absolute;
+    top:10%;
+    left: -10%;
+    width: 50%;
+    height: 100%;
+}
+.kep{
+    position: absolute;
+    top:15%;
+    left:65%;
+    width: 35%;
+    height:95%;
+    object-fit:  meet;
+}
+input[type=text],input[type=password]{
+    height: 50%;
+    width: 70%;
+    margin: 0 auto;
 }
