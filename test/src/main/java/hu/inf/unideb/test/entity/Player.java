@@ -9,8 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,34 +21,34 @@ import javax.validation.constraints.Size;
  * @author gjula
  */
 @Entity
-@Table(name = "player", catalog = "sql7261965", schema = "")
+@Table(name = "player")
 @NamedQueries({
     @NamedQuery(name = "Player.findAll", query = "SELECT p FROM Player p")})
 public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @NotNull
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "nev", nullable = false, length = 255)
+    @Column(name = "nev")
     private String nev;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "rang", nullable = false)
+    @Column(name = "rang")
     private int rang;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "poszt", nullable = false, length = 255)
+    @Column(name = "poszt")
     private String poszt;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ertek", nullable = false)
+    @Column(name = "ertek")
     private int ertek;
 
     public Player() {

@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
  * @author gjula
  */
 @Entity
-@Table(name = "my_team", catalog = "sql7261965", schema = "")
+@Table(name = "my_team")
 @NamedQueries({
     @NamedQuery(name = "MyTeam.findAll", query = "SELECT m FROM MyTeam m")})
 public class MyTeam implements Serializable {
@@ -32,42 +32,64 @@ public class MyTeam implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
-    @Size(max = 255)
-    @Column(name = "kapus", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kapus")
     private String kapus;
-    @Size(max = 255)
-    @Column(name = "vedo_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_egy")
     private String vedoEgy;
-    @Size(max = 255)
-    @Column(name = "vedo_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_ketto")
     private String vedoKetto;
-    @Size(max = 255)
-    @Column(name = "vedo_harom", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_harom")
     private String vedoHarom;
-    @Size(max = 255)
-    @Column(name = "vedo_negy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_negy")
     private String vedoNegy;
-    @Size(max = 255)
-    @Column(name = "kozep_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_egy")
     private String kozepEgy;
-    @Size(max = 255)
-    @Column(name = "kozep_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_ketto")
     private String kozepKetto;
-    @Size(max = 255)
-    @Column(name = "kozep_harom", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_harom")
     private String kozepHarom;
-    @Size(max = 255)
-    @Column(name = "kozep_negy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_negy")
     private String kozepNegy;
-    @Size(max = 255)
-    @Column(name = "tamado_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "tamado_egy")
     private String tamadoEgy;
-    @Size(max = 255)
-    @Column(name = "tamado_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "tamado_ketto")
     private String tamadoKetto;
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private User user;
 
@@ -76,6 +98,21 @@ public class MyTeam implements Serializable {
 
     public MyTeam(Integer id) {
         this.id = id;
+    }
+
+    public MyTeam(Integer id, String kapus, String vedoEgy, String vedoKetto, String vedoHarom, String vedoNegy, String kozepEgy, String kozepKetto, String kozepHarom, String kozepNegy, String tamadoEgy, String tamadoKetto) {
+        this.id = id;
+        this.kapus = kapus;
+        this.vedoEgy = vedoEgy;
+        this.vedoKetto = vedoKetto;
+        this.vedoHarom = vedoHarom;
+        this.vedoNegy = vedoNegy;
+        this.kozepEgy = kozepEgy;
+        this.kozepKetto = kozepKetto;
+        this.kozepHarom = kozepHarom;
+        this.kozepNegy = kozepNegy;
+        this.tamadoEgy = tamadoEgy;
+        this.tamadoKetto = tamadoKetto;
     }
 
     public Integer getId() {

@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
  * @author gjula
  */
 @Entity
-@Table(name = "enemy_team", catalog = "sql7261965", schema = "")
+@Table(name = "enemy_team")
 @NamedQueries({
     @NamedQuery(name = "EnemyTeam.findAll", query = "SELECT e FROM EnemyTeam e")})
 public class EnemyTeam implements Serializable {
@@ -32,50 +32,72 @@ public class EnemyTeam implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "szint", nullable = false)
+    @Column(name = "szint")
     private int szint;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "probalkozas", nullable = false)
+    @Column(name = "probalkozas")
     private int probalkozas;
-    @Size(max = 255)
-    @Column(name = "kapus", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kapus")
     private String kapus;
-    @Size(max = 255)
-    @Column(name = "vedo_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_egy")
     private String vedoEgy;
-    @Size(max = 255)
-    @Column(name = "vedo_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_ketto")
     private String vedoKetto;
-    @Size(max = 255)
-    @Column(name = "vedo_harom", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_harom")
     private String vedoHarom;
-    @Size(max = 255)
-    @Column(name = "vedo_negy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "vedo_negy")
     private String vedoNegy;
-    @Size(max = 255)
-    @Column(name = "kozep_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_egy")
     private String kozepEgy;
-    @Size(max = 255)
-    @Column(name = "kozep_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_ketto")
     private String kozepKetto;
-    @Size(max = 255)
-    @Column(name = "kozep_harom", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_harom")
     private String kozepHarom;
-    @Size(max = 255)
-    @Column(name = "kozep_negy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "kozep_negy")
     private String kozepNegy;
-    @Size(max = 255)
-    @Column(name = "tamado_egy", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "tamado_egy")
     private String tamadoEgy;
-    @Size(max = 255)
-    @Column(name = "tamado_ketto", length = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "tamado_ketto")
     private String tamadoKetto;
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private User user;
 
@@ -86,10 +108,21 @@ public class EnemyTeam implements Serializable {
         this.id = id;
     }
 
-    public EnemyTeam(Integer id, int szint, int probalkozas) {
+    public EnemyTeam(Integer id, int szint, int probalkozas, String kapus, String vedoEgy, String vedoKetto, String vedoHarom, String vedoNegy, String kozepEgy, String kozepKetto, String kozepHarom, String kozepNegy, String tamadoEgy, String tamadoKetto) {
         this.id = id;
         this.szint = szint;
         this.probalkozas = probalkozas;
+        this.kapus = kapus;
+        this.vedoEgy = vedoEgy;
+        this.vedoKetto = vedoKetto;
+        this.vedoHarom = vedoHarom;
+        this.vedoNegy = vedoNegy;
+        this.kozepEgy = kozepEgy;
+        this.kozepKetto = kozepKetto;
+        this.kozepHarom = kozepHarom;
+        this.kozepNegy = kozepNegy;
+        this.tamadoEgy = tamadoEgy;
+        this.tamadoKetto = tamadoKetto;
     }
 
     public Integer getId() {

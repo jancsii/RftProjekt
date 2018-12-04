@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -35,35 +36,60 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "username")
     private String username;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "password")
     private String password;
-    @Size(max = 255)
-    @Column(name = "confirm_Password")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "confirm_password")
     private String confirmPassword;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "email")
     private String email;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "first_name")
     private String firstName;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "last_name")
     private String lastName;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "isactive")
-    private Boolean isactive;
+    private boolean isactive;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
-    private Authorities authorities;
+    private MyTeam myTeam;
 
     public User() {
     }
 
     public User(Integer id) {
         this.id = id;
+    }
+
+    public User(Integer id, String username, String password, String confirmPassword, String email, String firstName, String lastName, boolean isactive) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.isactive = isactive;
     }
 
     public Integer getId() {
@@ -122,20 +148,20 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public Boolean getIsactive() {
+    public boolean getIsactive() {
         return isactive;
     }
 
-    public void setIsactive(Boolean isactive) {
+    public void setIsactive(boolean isactive) {
         this.isactive = isactive;
     }
 
-    public Authorities getAuthorities() {
-        return authorities;
+    public MyTeam getMyTeam() {
+        return myTeam;
     }
 
-    public void setAuthorities(Authorities authorities) {
-        this.authorities = authorities;
+    public void setMyTeam(MyTeam myTeam) {
+        this.myTeam = myTeam;
     }
 
     @Override
