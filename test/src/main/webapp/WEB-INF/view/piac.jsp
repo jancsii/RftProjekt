@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 
 <html>
 <head>
@@ -63,9 +63,14 @@ td {
     opacity: 40%;
 }
 
+        tr:nth-child(odd){
+            background-color: SteelBlue;
+        }
+
 tr:nth-child(even){
-    background-color: rgba(255, 255, 255, .3);
+    background-color: RoyalBlue;
 }
+
     </style>
 </head>
 
@@ -82,7 +87,7 @@ tr:nth-child(even){
     </div>
     
 <h1>Átigazolási piac</h1>
-        <h1>Money: ${money}</h1>
+        <h1>Pénzed: ${money} millió euró</h1>
 <h1>Kapusok</h1>
 
 <form:form name="leker" method="POST" class="form-signin" >
@@ -106,7 +111,7 @@ tr:nth-child(even){
    </table>
 
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>   
-<h1>Vedok: </h1>
+<h1>Véd?k: </h1>
     <table>
         <c:forEach var="vedok" items="${vedo_kiir}" varStatus="status">
             <tr>
@@ -127,7 +132,7 @@ tr:nth-child(even){
    </table>
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>
 
-<h1>Kozeppalyasok: </h1>
+<h1>Középpályások: </h1>
     <table>
         <c:forEach var="kozepek" items="${kozep_kiir}" varStatus="status">
             <tr>
@@ -147,7 +152,7 @@ tr:nth-child(even){
         </c:forEach>
    </table>
     <button type="submit" class="btn btn-dark btn-rounded">Mentés</button>
-<h1>Tamadok</h1>
+<h1>Támadók</h1>
 <table>
          <c:forEach var="tamadok" items="${tamado_kiir}" varStatus="status">
             <tr>

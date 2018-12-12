@@ -30,7 +30,7 @@
         </div>
     </div>
     
-<h2>Ellenfel csapat:</h2>
+<h2>Ellenfél csapat:</h2>
 
 <center>
 <div class="wrapper">

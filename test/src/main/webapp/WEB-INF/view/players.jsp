@@ -156,7 +156,7 @@ $(document).ready(function(){
             <h5>        
             <form action="/players" method="post">
 
-            <button type="submit" class="btn btn-info">Tovabb</button>
+            <button type="submit" class="btn btn-info">Tovább</button>
         </form></h5>
   </div>
 

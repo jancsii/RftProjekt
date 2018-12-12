@@ -71,18 +71,22 @@ table {
     margin: 10px auto;
     color: black;
     width: 50%;
-    top: auto;
+    top: 40px;
 }
 
 td {
     text-align: center;
     padding: 8px;
     opacity: 40%;
-    color: springgreen
+    color: black
 }
 td:nth-child(even){
-    color: gold;
+    color: black;
 }
 tr:nth-child(even){
-    background-color: rgba(255, 255, 255, .3);
+    background-color: RoyalBlue;
+}
+
+tr:nth-child(odd){
+    background-color: SteelBlue;
 }

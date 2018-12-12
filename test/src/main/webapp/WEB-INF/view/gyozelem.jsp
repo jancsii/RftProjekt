@@ -3,7 +3,7 @@
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
 <head>
-    <title>asd</title>
+    <title>GyÅ‘zelem</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -19,16 +19,16 @@
 <body>
         <div class="topnav">
         <a href="result">Adataim</a>
-        <a href="myteam">Saját csapatom</a>
-        <a href="enemy">Ellenfél csapata</a>
-        <a href="piac">Átigazolási piac</a>
-        <a href="players">Játék</a>
+        <a href="myteam">Sajï¿½t csapatom</a>
+        <a href="enemy">Ellenfï¿½l csapata</a>
+        <a href="piac">ï¿½tigazolï¿½si piac</a>
+        <a href="players">Jï¿½tï¿½k</a>
         <div class="nav navbar-right">
-            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kilépés</a>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kilï¿½pï¿½s</a>
         </div>
     </div>
         <div >
-            <h3>Gratulalunk megnyerted a kupat!</h3>
+            <h3>GratulÃ¡lunk megnyerted a kupÃ¡t!</h3>
             <img id="trofea" src=../../resources/images/trophy.png>
         </div>
 </body>

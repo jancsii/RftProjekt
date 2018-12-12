@@ -59,11 +59,11 @@ public class PlayerController {
     BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     AuthoritiesService authService;
-    
+
     MyTeam myTeam = new MyTeam();
     EnemyTeam enemyTeam=new EnemyTeam();
     public static User alany=new User();
-    public static User alanyka=new User(); 
+    public static User alanyka=new User();
     public static User login_alany=new User();
     EnemyTeam ellenfel=new EnemyTeam();
     MyTeam sajat=new MyTeam();
@@ -74,7 +74,7 @@ public class PlayerController {
     public List<Player> piac = new ArrayList<>();
     public Authorities autha=new Authorities();
     int kiirt_szint=0;
-    
+
     @RequestMapping(value = "/players", method = RequestMethod.GET)
     public ModelAndView getdata() {
         torol();
@@ -86,7 +86,7 @@ public class PlayerController {
         model.addObject("listMyTeam", listMyTeam);
         model.addObject("listEnemyTeam", listEnemyTeam);
         model.addObject("szint","Jelenlegi szinted: "+enemyTeam.getSzint());
-        model.addObject("probalkozas","Próbalkozasaid szama: "+enemyTeam.getProbalkozas());
+        model.addObject("probalkozas","Próbalkozásaid száma: "+enemyTeam.getProbalkozas());
         model.addObject("result",resultGenerator.eredmeny());
         if(win){
             model.addObject("res","Megnyerted a meccset!");
@@ -96,7 +96,7 @@ public class PlayerController {
             model.addObject("res","Döntetlen lett az eredmény!");
         }
         model.addObject("ertekek",resultGenerator.toString());
-        
+
         return model;
     }
 
@@ -131,11 +131,11 @@ public class PlayerController {
             money=5;
             return "redirect:/vereseg";
         }else{
-        lose=false;
-        win=false;
-        getEnemyTeam();
-        kiirt_szint=szint;
-        return "redirect:/players";
+            lose=false;
+            win=false;
+            getEnemyTeam();
+            kiirt_szint=szint;
+            return "redirect:/players";
         }
     }
 
@@ -148,27 +148,27 @@ public class PlayerController {
             }
         }
     }
-    
+
     @RequestMapping(value = "/myteam", method = RequestMethod.GET)
     public ModelAndView getmyteam() {
         ModelAndView model = new ModelAndView("myteam");
         model.addObject("listMyTeam", listMyTeam);
         return model;
     }
-     @RequestMapping(value = "/vereseg", method = RequestMethod.GET)
-        public ModelAndView vereseg() {
-            ModelAndView model = new ModelAndView("vereseg");
-            model.addObject("elert", kiirt_szint-1);
-            return model;
+    @RequestMapping(value = "/vereseg", method = RequestMethod.GET)
+    public ModelAndView vereseg() {
+        ModelAndView model = new ModelAndView("vereseg");
+        model.addObject("elert", kiirt_szint-1);
+        return model;
     }
 
-       @RequestMapping(value = "/enemy", method = RequestMethod.GET)
+    @RequestMapping(value = "/enemy", method = RequestMethod.GET)
     public ModelAndView getenemyteam() {
         ModelAndView model = new ModelAndView("enemy");
         model.addObject("listEnemyTeam", listEnemyTeam);
         return model;
     }
-    
+
     @RequestMapping(value = "/result", method = RequestMethod.GET)
     public ModelAndView get() {
         ModelAndView model = new ModelAndView("result");
@@ -178,14 +178,14 @@ public class PlayerController {
         model.addObject("email", login_alany.getEmail());
         return model;
     }
-    
+
     @RequestMapping(value = "/piac", method = RequestMethod.GET)
     public ModelAndView getpiac() {
         List<Player> kapus_kiir=playerService.kapusok(piac, money);
         List<Player> vedo_kiir=playerService.vedok(piac, money);
         List<Player> kozep_kiir=playerService.kozepek(piac, money);
         List<Player> tamado_kiir=playerService.tamadok(piac, money);
-        
+
         ModelAndView model = new ModelAndView("piac");
         model.addObject("kapus_kiir",kapus_kiir);
         model.addObject("vedo_kiir", vedo_kiir);
@@ -195,7 +195,7 @@ public class PlayerController {
 
         return model;
     }
-        
+
     @RequestMapping(value = "/piac", method = RequestMethod.POST)
     public String leker(HttpServletRequest request){
 
@@ -246,7 +246,7 @@ public class PlayerController {
                 myTeamService.create(resultGenerator.getMyTeam());
                 listMyTeam = getList(resultGenerator.getMyTeam());
                 money -= player.getErtek();
-                piac.remove(player);               
+                piac.remove(player);
             }else if(piac.get(s).getNev().equals(lekeresek_vedok)){
                 igazolt.add(lekeresek_vedok);
                 player=playerService.getLowBack(resultGenerator.getMyTeam().getVedoEgy(),resultGenerator.getMyTeam().getVedoKetto(),resultGenerator.getMyTeam().getVedoHarom(),resultGenerator.getMyTeam().getVedoNegy(),"vedo");
@@ -325,18 +325,18 @@ public class PlayerController {
         }
         listMyTeam = getList(resultGenerator.getMyTeam());
     }
-  @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView registration() {
         return new ModelAndView("registration", "userReg", new User());
     }
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String reg(@ModelAttribute("userReg") User user,BindingResult bindingResult,ModelMap model) {
         userValidator.validate(user,bindingResult);
-        
+
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-        
+
         user.setIsactive(true);
         userService.save(user);
         alany.setUsername(user.getUsername());
@@ -353,42 +353,42 @@ public class PlayerController {
         authService.save(autha);
         return "redirect:/login";
     }
-    
 
-    
-@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
-public ModelAndView loginPage() {
-    return new ModelAndView("login");
-}
 
-@RequestMapping(value = {" ","/","/home"}, method =RequestMethod.GET)
-public ModelAndView homePage() {
-    return new ModelAndView("home");
-}
 
-  @RequestMapping(value = {" ","/","/home"}, method = RequestMethod.POST)
-  public String submit(Model model) {
-                Authentication auth = SecurityContextHolder.getContext()
-                                                 .getAuthentication();
-                            model.addAttribute("username",auth.getName() );
-                            login_alany=userService.findByUsername(auth.getName());
-                            model.addAttribute("username",login_alany.getUsername());
-                            model.addAttribute("firstName", login_alany.getFirstName());
-                            model.addAttribute("lastName", login_alany.getLastName());
-                            model.addAttribute("email", login_alany.getEmail());
-                            alanyka.setId(login_alany.getId());
-                            getMyTeam();
-                            getEnemyTeam();
-                            piac=nemhasznalt;
-                return "result";
-               
-  }
+    @RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView loginPage() {
+        return new ModelAndView("login");
+    }
 
-  
+    @RequestMapping(value = {" ","/","/home"}, method =RequestMethod.GET)
+    public ModelAndView homePage() {
+        return new ModelAndView("home");
+    }
+
+    @RequestMapping(value = {" ","/","/home"}, method = RequestMethod.POST)
+    public String submit(Model model) {
+        Authentication auth = SecurityContextHolder.getContext()
+                .getAuthentication();
+        model.addAttribute("username",auth.getName() );
+        login_alany=userService.findByUsername(auth.getName());
+        model.addAttribute("username",login_alany.getUsername());
+        model.addAttribute("firstName", login_alany.getFirstName());
+        model.addAttribute("lastName", login_alany.getLastName());
+        model.addAttribute("email", login_alany.getEmail());
+        alanyka.setId(login_alany.getId());
+        getMyTeam();
+        getEnemyTeam();
+        piac=nemhasznalt;
+        return "result";
+
+    }
+
+
     public void getMyTeam()
     {
-        
-        myTeam = teamCreator.createMyTeam(myTeam,80,85);
+
+        myTeam = teamCreator.createMyTeam(myTeam,77,85);
         logger.info("Saját csapat legenerálva!");
         resultGenerator.setMyTeamAllErtek(my_team_igazolasertek);
         resultGenerator.setMyTeamAllRang(my_team_osszertek);
@@ -410,7 +410,7 @@ public ModelAndView homePage() {
         ellenfel=enemyTeam;
         resultGenerator.setEnemyTeam(ellenfel);
         listEnemyTeam = getListEnemy(ellenfel);
-        
+
     }
 
     private List<String> getList(MyTeam myTeam) {
@@ -431,7 +431,7 @@ public ModelAndView homePage() {
     }
 
     private List<String> getListEnemy(EnemyTeam myTeam) {
-       List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         list.add(myTeam.getKapus());
         list.add(myTeam.getVedoEgy());
         list.add(myTeam.getVedoKetto());

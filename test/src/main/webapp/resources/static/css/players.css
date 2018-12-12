@@ -12,7 +12,7 @@ input[type=text],input[type=password]{
 }
 h1{
     text-align: center;
-    color: saddlebrown;
+    color: black;
     font-size: 30px;
     font-family: fantasy;
     text-decoration: underline;
@@ -54,6 +54,15 @@ h3{
     text-decoration: none;
     font-size: 17px;
 }
+
+#myBtn{
+    width: 128px;
+    height: 50px;
+    font-size: 23px;
+    text-align: center;
+
+}
+
 
 .topnav a:hover {
     background-color: white;
