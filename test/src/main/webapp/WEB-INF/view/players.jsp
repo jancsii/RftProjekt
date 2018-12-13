@@ -12,68 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <link type="text/css" rel="stylesheet" href="/resources/static/css/players.css"/>
-        <style>
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-repeat:initial;
-    background-image: url("https://www.premiumwhistler.com/wp-content/uploads/2016/10/wallpaper-background-black-widescreen-windows-dekstop-barcelona-messi-argentina-football-screensaver-lionel-graphics-creative-abstract-images-backgrounds.jpg"); 
-}
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-</style>
-<script>
-$(document).ready(function(){
-    $("h4").hide();
-    $("h5").hide();
-    $("h6").hide();
-    $(".ClassNameOfShouldBeHiddenElements").hide();
-    $("h3").click(function(){
-        $("h4").css("color", "red");
-        $("h4").css( "fontSize", "50px" );
-        $("h4").show();
-        $("h4").css("text-align", "center");
-        $("h5").css("text-align", "center");
-        $("h5").show();
-        $("h6").css("color", "yellow");
-        $("h6").css( "fontSize", "25px" );
-        $("h6").css("text-align", "center");
-        $("h6").show();
-    });
-});
-</script>
+        <script type="text/javascript" src="/resources/static/js/players.js"></script>
 
     </head>
+
 <body>
         <div class="topnav">
         <a href="result">Adataim</a>
@@ -161,35 +106,7 @@ $(document).ready(function(){
   </div>
 
 </div>
+    <script type="text/javascript" src="/resources/static/js/players2.js"></script>
 
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>   
-
-       <!--    <h4><c:out value="${res}" /></h4>
-            <h3><c:out value="${result}" /></h3>
-            <h5>        
-            <form action="/players" method="post">
-            <button type="submit" class="btn btn-info">Tovabb</button>
-        </form></h5> -->
 </body>
 </html>

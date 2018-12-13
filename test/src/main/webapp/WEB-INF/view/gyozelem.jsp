@@ -1,4 +1,4 @@
-<%@page contentType = "text/html;charset = iso-8859-2" language = "java" %>
+<%@page contentType = "text/html; charset=UTF-8" language = "java" %>
 <%@page isELIgnored = "false" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
@@ -19,12 +19,12 @@
 <body>
         <div class="topnav">
         <a href="result">Adataim</a>
-        <a href="myteam">Saj�t csapatom</a>
-        <a href="enemy">Ellenf�l csapata</a>
-        <a href="piac">�tigazol�si piac</a>
-        <a href="players">J�t�k</a>
+        <a href="myteam">Saját csapatom</a>
+        <a href="enemy">Ellenfél csapata</a>
+        <a href="piac">Átigazolási piac</a>
+        <a href="players">Játék</a>
         <div class="nav navbar-right">
-            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kil�p�s</a>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kilépés</a>
         </div>
     </div>
         <div >

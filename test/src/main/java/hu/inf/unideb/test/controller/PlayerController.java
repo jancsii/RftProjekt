@@ -388,7 +388,7 @@ public class PlayerController {
     public void getMyTeam()
     {
 
-        myTeam = teamCreator.createMyTeam(myTeam,77,85);
+        myTeam = teamCreator.createMyTeam(myTeam,85,90);
         logger.info("Saját csapat legenerálva!");
         resultGenerator.setMyTeamAllErtek(my_team_igazolasertek);
         resultGenerator.setMyTeamAllRang(my_team_osszertek);

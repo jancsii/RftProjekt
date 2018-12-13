@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html>
 <head>
@@ -17,77 +17,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="/resources/static/css/piac.css"/>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#kapus_poszt').change(function () {
-                var selectedOption = $('#kapus_poszt option:selected');
-                $('#kapuss').html('Igazolas = ' + selectedOption.text());
-                $('#kapuss').css("color", "red");
-                $('#kapuss').css( "fontSize", "10px" );
-            });
-             $('#vedo_poszt').change(function () {
-                var selectedOption = $('#vedo_poszt option:selected');
-                $('#vedoo').html('Igazolas = ' + selectedOption.text());
-                $('#vedoo').css("color", "red");
-                $('#vedoo').css( "fontSize", "10px" );
-            });
-            $('#kozepes_poszt').change(function () {
-                var selectedOption = $('#kozepes_poszt option:selected');
-                $('#kozepp').html('Igazolas = ' + selectedOption.text());
-                $('#kozepp').css("color", "red");
-                $('#kozepp').css( "fontSize", "10px" );
-            });
-            $('#tamado_poszt').change(function () {
-                var selectedOption = $('#tamado_poszt option:selected');
-                $('#tamadoo').html('Igazolas = ' + selectedOption.text());
-                $('#tamadoo').css("color", "red");
-                $('#tamadoo').css( "fontSize", "10px" );
-            });
-$('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
-        });
-    </script>
-    <style>
-        table {
-    border-collapse: separate;
-    margin: 10px auto;
-    color: black;
-    width: 50%;
-    top: auto;
-}
+    <script type="text/javascript" src="/resources/static/js/piac.js"></script>
 
-td {
-    text-align: center;
-    padding: 8px;
-    opacity: 40%;
-}
-
-        tr:nth-child(odd){
-            background-color: SteelBlue;
-        }
-
-tr:nth-child(even){
-    background-color: RoyalBlue;
-}
-
-    </style>
 </head>
 
 <body>
         <div class="topnav">
         <a href="result">Adataim</a>
-        <a href="myteam">Saj·t csapatom</a>
-        <a href="enemy">EllenfÈl csapata</a>
-        <a class="active" href="piac">¡tigazol·si piac</a>
-        <a href="players">J·tÈk</a>
+        <a href="myteam">Saj√°t csapatom</a>
+        <a href="enemy">Ellenf√©l csapata</a>
+        <a class="active" href="piac">√Åtigazol√°si piac</a>
+        <a href="players">J√°t√©k</a>
         <div class="nav navbar-right">
-            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> KilÈpÈs</a>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span> Kil√©p√©s</a>
         </div>
     </div>
     
-<h1>¡tigazol·si piac</h1>
-        <h1>PÈnzed: ${money} milliÛ eurÛ</h1>
+<h1>√Åtigazol√°si piac</h1>
+        <h1>P√©nzed: ${money} milli√≥ eur√≥</h1>
 <h1>Kapusok</h1>
 
 <form:form name="leker" method="POST" class="form-signin" >
@@ -110,8 +57,8 @@ tr:nth-child(even){
         </c:forEach>
    </table>
 
-    <button type="submit" class="btn btn-dark btn-rounded">MentÈs</button>   
-<h1>VÈd?k: </h1>
+    <button type="submit" class="btn btn-dark btn-rounded">Ment√©s</button>   
+<h1>V√©d≈ëk: </h1>
     <table>
         <c:forEach var="vedok" items="${vedo_kiir}" varStatus="status">
             <tr>
@@ -130,9 +77,9 @@ tr:nth-child(even){
             </tr>
         </c:forEach>
    </table>
-    <button type="submit" class="btn btn-dark btn-rounded">MentÈs</button>
+    <button type="submit" class="btn btn-dark btn-rounded">Ment√©s</button>
 
-<h1>KˆzÈpp·ly·sok: </h1>
+<h1>K√∂z√©pp√°ly√°sok: </h1>
     <table>
         <c:forEach var="kozepek" items="${kozep_kiir}" varStatus="status">
             <tr>
@@ -151,8 +98,8 @@ tr:nth-child(even){
             </tr>
         </c:forEach>
    </table>
-    <button type="submit" class="btn btn-dark btn-rounded">MentÈs</button>
-<h1>T·madÛk</h1>
+    <button type="submit" class="btn btn-dark btn-rounded">Ment√©s</button>
+<h1>T√°mad√≥k</h1>
 <table>
          <c:forEach var="tamadok" items="${tamado_kiir}" varStatus="status">
             <tr>
@@ -171,7 +118,7 @@ tr:nth-child(even){
             </tr>
         </c:forEach>
    </table>
-    <button type="submit" class="btn btn-dark btn-rounded">MentÈs</button>
+    <button type="submit" class="btn btn-dark btn-rounded">Ment√©s</button>
         </form:form>
 </body>
 </html>

@@ -17,6 +17,29 @@ h1{
     font-family: fantasy;
     font-weight: bold;
 }
+
+table {
+    border-collapse: separate;
+    margin: 10px auto;
+    color: black;
+    width: 50%;
+    top: auto;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+    opacity: 40%;
+}
+
+tr:nth-child(odd){
+    background-color: SteelBlue;
+}
+
+tr:nth-child(even){
+    background-color: RoyalBlue;
+}
+
 h2{
     color: blue;
     font-size: 25px;
