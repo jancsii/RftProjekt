@@ -19,8 +19,8 @@
 
 </head>
 <body>
-    <img src="https://pbs.twimg.com/media/DdkgUjcXUAEYzLX.png" alt="" />
-    <img src="https://hqfootballrenders.files.wordpress.com/2013/10/jc3bcrgen-klopp.png" class="kep"/>
+    <img src="/resources/images/mourinho.png" alt="" />
+    <img src="/resources/images/klopp.png" class="kep"/>
 <form:form action="/registration" modelAttribute="userReg" method="POST" class="form-signin">
     <div class="topnav">
         <a href="home"><span class="glyphicon glyphicon-home "></span> Kezdőlap</a>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body {
-    background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
+    background-image:url("/resources/images/hatter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

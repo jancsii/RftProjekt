@@ -187,6 +187,35 @@ public class PlayerServiceImpl implements PlayerService{
         logger.info("Név:{} Érték: {}",name4,list.get(3).getRang());
         return list.stream().sorted(Comparator.comparing(Player::getRang)).findFirst().get();
     }
+    
+    
+    @Override
+    public Player getLowBack3(String name1, String name2, String name3,String poszt) {
+        List<Player> list = new ArrayList<>();
+        list.add(getPlayerByName(name1,poszt));
+        logger.info("Név:{} Érték: {}",name1,list.get(0).getRang());
+        list.add(getPlayerByName(name2,poszt));
+        logger.info("Név:{} Érték: {}",name2,list.get(1).getRang());
+        list.add(getPlayerByName(name3,poszt));
+        logger.info("Név:{} Érték: {}",name3,list.get(2).getRang());
+        return list.stream().sorted(Comparator.comparing(Player::getRang)).findFirst().get();
+    }
+    
+    @Override
+    public Player getLowBack5(String name1, String name2, String name3, String name4, String name5,String poszt) {
+        List<Player> list = new ArrayList<>();
+        list.add(getPlayerByName(name1,poszt));
+        logger.info("Név:{} Érték: {}",name1,list.get(0).getRang());
+        list.add(getPlayerByName(name2,poszt));
+        logger.info("Név:{} Érték: {}",name2,list.get(1).getRang());
+        list.add(getPlayerByName(name3,poszt));
+        logger.info("Név:{} Érték: {}",name3,list.get(2).getRang());
+        list.add(getPlayerByName(name4,poszt));
+        logger.info("Név:{} Érték: {}",name4,list.get(3).getRang());
+        list.add(getPlayerByName(name5,poszt));
+        logger.info("Név:{} Érték: {}",name5,list.get(4).getRang());
+        return list.stream().sorted(Comparator.comparing(Player::getRang)).findFirst().get();
+    }
 
     @Override
     public Player getStriker(String name1, String name2, String poszt) {

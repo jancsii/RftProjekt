@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body{
-    background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
+    background-image: url("/resources/images/hatter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    font-family:sans-serif;
+    background-attachment: fixed;
 }
 input[type=text],input[type=password]{
     margin-left: auto;
@@ -15,15 +15,13 @@ h2{
     text-align: center;
     color: cornflowerblue;
     font-size: 45px;
-    font-family: fantasy;
-    text-decoration: underline;
+    font-family: 'Indie Flower', cursive;
 }
 h3{
     margin-top: 10px;
     text-align: center;
     color: cornflowerblue;
     font-size: 45px;
-    font-family: fantasy;
 }
 #trofea{
     display: block;
@@ -72,6 +70,8 @@ table {
     color: black;
     width: 50%;
     top: 40px;
+    border: 3px solid skyblue;
+    font-family: fantasy;
 }
 
 td {

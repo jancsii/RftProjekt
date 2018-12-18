@@ -4,6 +4,8 @@ import hu.inf.unideb.test.entity.EnemyTeam;
 import hu.inf.unideb.test.entity.MyTeam;
 import static hu.inf.unideb.test.service.match.ResultGenerator.probalkozas;
 import static hu.inf.unideb.test.service.match.ResultGenerator.szint;
+import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_igazolasertek;
+import static hu.inf.unideb.test.service.player.PlayerServiceImpl.my_team_osszertek;
 
 import java.util.Random;
 
@@ -14,9 +16,45 @@ public class ResultGenerator {
     public EnemyTeam enemyTeam;
     public int myTeamAllRang;
     public int myTeamAllErtek;
+    public int myTeamAll2Rang;
+    public int myTeamAll2Ertek;
+    public int myTeamAll3Rang;
+    public int myTeamAll3Ertek;
     public int enemyTeamAllRang;
     public int enemyTeamAllErtek;
 
+    
+    public int getMyTeamAll2Rang() {
+        return myTeamAll2Rang;
+    }
+
+    public void setMyTeamAll2Rang(int myTeamAll2Rang) {
+        this.myTeamAll2Rang = myTeamAll2Rang;
+    }
+
+    public int getMyTeamAll2Ertek() {
+        return myTeamAll2Ertek;
+    }
+
+    public void setMyTeamAll2Ertek(int myTeamAll2Ertek) {
+        this.myTeamAll2Ertek = myTeamAll2Ertek;
+    }
+
+    public int getMyTeamAll3Rang() {
+        return myTeamAll3Rang;
+    }
+
+    public void setMyTeamAll3Rang(int myTeamAll3Rang) {
+        this.myTeamAll3Rang = myTeamAll3Rang;
+    }
+
+    public int getMyTeamAll3Ertek() {
+        return myTeamAll3Ertek;
+    }
+
+    public void setMyTeamAll3Ertek(int myTeamAll3Ertek) {
+        this.myTeamAll3Ertek = myTeamAll3Ertek;
+    }
     public static int getProbalkozas() {
         return probalkozas;
     }
@@ -33,13 +71,6 @@ public class ResultGenerator {
     public static boolean lose=false;
     public static boolean win=false;
 
-    @Override
-    public String toString() {
-        return "myTeamAllRang= \n" + myTeamAllRang +
-                ", myTeamAllErtek= " + myTeamAllErtek +
-                ", enemyTeamAllRang= " + enemyTeamAllRang +
-                ", enemyTeamAllErtek= " + enemyTeamAllErtek ;
-    }
 
     public void setSzint(int szint) {
         this.szint = szint;
@@ -105,11 +136,11 @@ public class ResultGenerator {
 
     public void getResult(){
 
-        double osszegrang=(getMyTeamAllRang()+getEnemyTeamAllRang())/2;
-        double my_arany = getMyTeamAllRang()/osszegrang;
+        double osszegrang=(my_team_osszertek+getEnemyTeamAllRang())/2;
+        double my_arany = my_team_osszertek/osszegrang;
         double enemy_arany = getEnemyTeamAllRang()/osszegrang;
-        double osszegertek=(getMyTeamAllErtek()+getEnemyTeamAllErtek())/2;
-        double my_ertek_arany=getMyTeamAllErtek()/osszegertek;
+        double osszegertek=(my_team_igazolasertek+getEnemyTeamAllErtek())/2;
+        double my_ertek_arany=my_team_igazolasertek/osszegertek;
         double enemy_ertek_arany=getEnemyTeamAllErtek()/osszegertek;
 
 

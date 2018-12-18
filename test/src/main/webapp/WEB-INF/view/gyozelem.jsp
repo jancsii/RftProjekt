@@ -20,7 +20,6 @@
         <div class="topnav">
         <a href="result">Adataim</a>
         <a href="myteam">Saját csapatom</a>
-        <a href="enemy">Ellenfél csapata</a>
         <a href="piac">Átigazolási piac</a>
         <a href="players">Játék</a>
         <div class="nav navbar-right">

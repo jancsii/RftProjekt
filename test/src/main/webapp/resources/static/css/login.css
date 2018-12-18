@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 html,body{
-    background-image: url("https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg");
+    background-image: url("/resources/images/hatter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,7 +23,7 @@ html,body{
 }
 .kep{
     align-content: center;
-    background: url("https://i.pinimg.com/originals/9e/eb/0e/9eeb0e2aeb413c4efdeb69b466fbc694.png");
+    background: url("/resources/images/kroos.png");
     background-repeat: no-repeat;
     background-position: 110%;
     background-position-y: 50px;
@@ -32,7 +32,7 @@ html,body{
 }
 .kep_1{
     align-content: center;
-    background: url("https://orig00.deviantart.net/91ca/f/2017/183/0/e/eden_hazard_by_dianjay-dbess96.png");
+    background: url("/resources/images/hazard.png");
     background-repeat: no-repeat;
     background-position: 0%;
     background-position-y: 80px;

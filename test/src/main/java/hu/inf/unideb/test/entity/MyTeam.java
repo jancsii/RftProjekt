@@ -243,5 +243,9 @@ public class MyTeam implements Serializable {
     public String toString() {
         return "hu.inf.unideb.test.entity.MyTeam[ id=" + id + " ]";
     }
+
+    public void add(MyTeam myTeam) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
